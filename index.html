@@ -2,491 +2,112 @@
 <html lang="es-CO">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Plataforma de apoyo para la auditoría de cuentas médicas en Colombia, con verificaciones normativas y revisión humana obligatoria.">
+  <meta name="description" content="AUDITTIA organiza expedientes y prepara verificaciones de cuentas médicas para EPS, firmas auditoras e IPS. El auditor conserva la decisión y la firma.">
   <meta name="theme-color" content="#0077c8">
-  <meta property="og:title" content="AUDITTIA | Auditoría de cuentas médicas">
-  <meta property="og:description" content="Verificación asistida de cuentas médicas para EPS, firmas auditoras e IPS, con criterio médico codificado y validación humana.">
+  <meta property="og:title" content="AUDITTIA | Más claridad en cada cuenta médica">
+  <meta property="og:description" content="Evidencia organizada. Verificaciones trazables. Decisiones humanas. Apoyo para la auditoría médica en Colombia.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CO">
-  <!-- <meta property="og:image" content="[URL_IMAGEN_SOCIAL]"> -->
+  <link rel="canonical" href="https://audittia.com/">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <meta property="og:url" content="https://audittia.com/">
+  <meta property="og:image" content="https://audittia.com/assets/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AUDITTIA. Evidencia organizada. Decisiones humanas.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fonts/work-sans-600.woff2" as="font" type="font/woff2" crossorigin>
   <title>AUDITTIA | Auditoría de cuentas médicas</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
-  <!-- Accesibilidad -->
   <a class="saltar-contenido" href="#contenido-principal">Saltar al contenido principal</a>
-
-  <div class="barra-utilidad">
-    <div class="contenedor barra-utilidad__interior">
-      <p>Auditoría médica asistida para el sistema de salud colombiano</p>
-      <nav aria-label="Enlaces institucionales">
-        <a href="privacidad.html">Tratamiento de datos</a>
-        <a href="recursos.html#preguntas">Preguntas frecuentes</a>
-      </nav>
-    </div>
-  </div>
-
-  <!-- Encabezado y navegación principal -->
-  <header class="encabezado" role="banner">
+  <div class="barra-utilidad" role="region" aria-label="Información institucional"><div class="contenedor barra-utilidad__interior"><p>Auditoría médica asistida · Colombia</p><nav aria-label="Enlaces institucionales"><a href="privacidad.html">Privacidad</a><a href="recursos.html#preguntas">Preguntas frecuentes</a></nav></div></div>
+  <header class="encabezado">
     <div class="contenedor encabezado__interior">
-      <a class="marca" href="index.html" aria-label="AUDITTIA, página de inicio">
-        <img src="assets/audittia-logo.png" width="412" height="123" alt="AUDITTIA, asistente de IA para auditoría médica">
-      </a>
-      <nav class="navegacion" aria-label="Navegación principal">
-        <ul class="navegacion__lista">
-          <li><a href="plataforma.html">Plataforma</a></li>
-          <li><a href="para-entidades.html">Para entidades</a></li>
-          <li><a href="seguridad.html">Seguridad</a></li>
-          <li><a href="nosotros.html">Nosotros</a></li>
-          <li><a href="recursos.html">Recursos</a></li>
-        </ul>
-      </nav>
-      <details class="menu-movil">
-        <summary>Menú</summary>
-        <nav aria-label="Navegación móvil">
-          <a href="plataforma.html">Plataforma</a>
-          <a href="para-entidades.html">Para entidades</a>
-          <a href="seguridad.html">Seguridad</a>
-          <a href="nosotros.html">Nosotros</a>
-          <a href="recursos.html">Recursos</a>
-          <a href="mailto:[CORREO_CONTACTO]">Contacto</a>
-        </nav>
-      </details>
-      <a class="boton boton--compacto" href="mailto:[CORREO_CONTACTO]">Escríbenos por correo</a>
+      <a class="marca" href="index.html" aria-label="AUDITTIA, página de inicio"><img src="assets/audittia-logo.png" width="412" height="123" alt="AUDITTIA, asistente de IA para auditoría médica"></a>
+      <nav class="navegacion" aria-label="Navegación principal"><ul class="navegacion__lista"><li><a href="plataforma.html">Plataforma</a></li><li><a href="para-entidades.html">Para entidades</a></li><li><a href="seguridad.html">Seguridad</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="recursos.html">Recursos</a></li></ul></nav>
+      <details class="menu-movil"><summary>Menú</summary><nav aria-label="Navegación móvil"><a href="plataforma.html">Plataforma</a><a href="para-entidades.html">Para entidades</a><a href="seguridad.html">Seguridad</a><a href="nosotros.html">Nosotros</a><a href="recursos.html">Recursos</a><a href="mailto:carlosromero@audittia.com">Contacto</a></nav></details>
+      <a class="boton boton--compacto" href="mailto:carlosromero@audittia.com">Conversemos <span aria-hidden="true">↗</span></a>
     </div>
   </header>
-
   <main id="contenido-principal" tabindex="-1">
-    <!-- Hero -->
     <section class="hero" aria-labelledby="titulo-principal">
       <div class="contenedor hero__interior">
         <div class="hero__contenido">
-          <p class="etiqueta etiqueta--hero">Método de auditoría codificado</p>
-          <h1 id="titulo-principal">Auditoría técnica de cuentas médicas para el sistema de salud colombiano.</h1>
-          <p class="hero__resumen">AUDITTIA revisa el expediente completo, contrasta lo facturado con sus soportes y prepara los hallazgos con la codificación aplicable. El auditor médico decide, ajusta y firma.</p>
-          <div class="grupo-botones" aria-label="Acciones principales">
-            <a class="boton boton--blanco" href="mailto:[CORREO_CONTACTO]">Escríbenos directamente <span aria-hidden="true">→</span></a>
-            <a class="boton boton--contorno-claro" href="#como-funciona">Cómo funciona <span aria-hidden="true">↓</span></a>
-          </div>
+          <p class="etiqueta etiqueta--hero">Tecnología al servicio del criterio médico</p>
+          <h1 id="titulo-principal">Más claridad en cada <span>cuenta médica.</span></h1>
+          <p class="hero__resumen">Relaciona lo facturado con sus soportes. Revisa los hallazgos con contexto. AUDITTIA prepara la evidencia; el auditor decide.</p>
+          <div class="grupo-botones"><a class="boton boton--claro" href="mailto:carlosromero@audittia.com">Hablemos de tu equipo <span aria-hidden="true">↗</span></a><a class="boton boton--contorno-claro" href="plataforma.html">Conocer la plataforma <span aria-hidden="true">→</span></a></div>
+          <p class="hero__nota">Para EPS, firmas auditoras e IPS en Colombia.</p>
         </div>
         <figure class="hero__visual">
-          <div class="hero__foto-marco">
-            <img src="assets/medica-auditoria.jpg" width="1600" height="1067" alt="Médica sonriente consultando una plataforma en su computador portátil.">
-          </div>
-          <div class="hero__sello">
-            <strong>Criterio médico</strong>
-            <span>Sin informe automático definitivo</span>
-          </div>
-          <div class="hero__insignia"><strong>Res. 2284</strong><span>Codificación aplicable</span></div>
-          <div class="hero__burbujas" aria-hidden="true"><i></i><i></i><i></i></div>
-          <figcaption>Foto: Tima Miroshnichenko, Pexels. Imagen ilustrativa; no representa a una cliente ni implica respaldo del producto.</figcaption>
+          <div class="hero__foto-marco"><img src="assets/medica-auditoria-1200.webp" srcset="assets/medica-auditoria-640.webp 640w, assets/medica-auditoria-1200.webp 1200w" sizes="(max-width: 760px) calc(100vw - 40px), 48vw" width="1200" height="800" fetchpriority="high" decoding="async" alt="Médica sonriente frente a su computador portátil."></div>
+          <div class="hero__sello"><span class="icono-check" aria-hidden="true">✓</span><div><strong>La decisión sigue siendo humana</strong><span>Revisión, criterio y firma del auditor.</span></div></div>
+          <figcaption>Imagen ilustrativa · Tima Miroshnichenko / Pexels</figcaption>
         </figure>
       </div>
+      <div class="hero__base"><div class="contenedor"><p><span aria-hidden="true">✓</span> Evidencia relacionada</p><p><span aria-hidden="true">✓</span> Verificaciones trazables</p><p><span aria-hidden="true">✓</span> Validación humana</p></div></div>
+    </section>
+    <section class="seccion accesos" aria-labelledby="titulo-rutas">
       <div class="contenedor">
-        <ul class="hero__principios" aria-label="Principios de la plataforma">
-          <li><strong>Marco normativo</strong><span>Cada verificación conserva su sustento.</span></li>
-          <li><strong>Seguridad de datos</strong><span>Tratamiento aislado y trazable.</span></li>
-          <li><strong>Firma humana</strong><span>El auditor siempre valida y decide.</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Declaración de propósito inspirada en el módulo editorial de la referencia -->
-    <section class="franja-mision" aria-labelledby="titulo-mision">
-      <div class="contenedor franja-mision__interior">
-        <p class="etiqueta">Nuestro propósito</p>
-        <h2 id="titulo-mision">Convertir expedientes dispersos en una revisión ordenada, trazable y lista para el criterio del auditor.</h2>
-        <a class="enlace-flecha" href="plataforma.html">Conocer la plataforma <span aria-hidden="true">→</span></a>
-      </div>
-    </section>
-
-    <!-- Rutas principales del sitio -->
-    <section class="seccion seccion--rutas" aria-labelledby="titulo-rutas">
-      <div class="contenedor">
-        <div class="encabezado-seccion encabezado-seccion--centrado">
-          <p class="etiqueta">Explora AUDITTIA</p>
-          <h2 id="titulo-rutas">Una ruta clara para cada decisión</h2>
-          <p>La información detallada ahora vive en páginas especializadas, con el mismo sistema visual y una navegación coherente.</p>
-        </div>
-        <div class="rutas-sitio">
-          <article class="ruta-sitio ruta-sitio--azul">
-            <div class="ruta-sitio__numero" aria-hidden="true">01</div>
-            <div>
-              <p class="ruta-sitio__rotulo">Método y alcance</p>
-              <h3>Cómo funciona la plataforma</h3>
-              <p>Conoce los siete pasos, la red de cruces y las verificaciones que prepara para revisión humana.</p>
-            </div>
-            <a href="plataforma.html" aria-label="Ver cómo funciona la plataforma">Ver la plataforma <span aria-hidden="true">→</span></a>
-          </article>
-          <article class="ruta-sitio ruta-sitio--imagen">
-            <img src="assets/medica-auditoria.jpg" width="1600" height="1067" alt="Médica revisando información en un computador portátil.">
-            <div class="ruta-sitio__capa">
-              <p class="ruta-sitio__rotulo">Implementación</p>
-              <h3>Diseñada para EPS, firmas auditoras e IPS</h3>
-              <a href="para-entidades.html" aria-label="Ver usos por tipo de entidad">Ver usos por entidad <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-          <article class="ruta-sitio ruta-sitio--lima">
-            <div class="ruta-sitio__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <div>
-              <p class="ruta-sitio__rotulo">Privacidad desde el proceso</p>
-              <h3>Datos sensibles bajo reglas explícitas</h3>
-              <p>Revisa los roles, controles, límites de uso y el estado de la política jurídica.</p>
-            </div>
-            <a href="seguridad.html" aria-label="Ver seguridad y tratamiento de datos">Ver seguridad <span aria-hidden="true">→</span></a>
-          </article>
+        <div class="encabezado-horizontal"><div><p class="etiqueta">Empieza aquí</p><h2 id="titulo-rutas">¿Qué quieres conocer?</h2></div><p>Encuentra la información que necesitas<br class="solo-escritorio"> para dar el siguiente paso.</p></div>
+        <div class="accesos__rejilla">
+          <a class="acceso" href="plataforma.html"><span class="acceso__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h4"/></svg></span><h3>Explorar la plataforma</h3><p>Del expediente a un borrador listo para revisar.</p><span class="acceso__flecha" aria-hidden="true">↗</span></a>
+          <a class="acceso" href="para-entidades.html"><span class="acceso__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21V7h8v14M11 3h10v18M1 21h22M6 11h2M6 15h2M15 7h2M15 11h2M15 15h2"/></svg></span><h3>Encontrar mi perfil</h3><p>Usos para EPS, firmas auditoras y prestadores.</p><span class="acceso__flecha" aria-hidden="true">↗</span></a>
+          <a class="acceso" href="seguridad.html"><span class="acceso__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-8 9-8 9s-8-4-8-9V6zM8 12l3 3 5-6"/></svg></span><h3>Revisar la seguridad</h3><p>Alcance, responsabilidades y protección de datos.</p><span class="acceso__flecha" aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
-
-    <!-- El problema -->
-    <section class="seccion seccion--diagnostico" aria-labelledby="titulo-problema">
-      <div class="contenedor problema">
-        <div class="problema__encabezado">
-          <p class="etiqueta">01 / Diagnóstico estructural</p>
-          <h2 id="titulo-problema">La auditoría de cuentas médicas hoy</h2>
-        </div>
-        <div class="problema__contenido">
-          <p>Una sola cuenta puede exigir la lectura manual de cientos de páginas. El auditor debe relacionar la factura con la epicrisis, la historia clínica, las evoluciones, las órdenes, las autorizaciones y la administración de medicamentos.</p>
-          <p>La información suele estar repartida en documentos distintos. Cada cobro debe revisarse contra su soporte, la pertinencia clínica, la tarifa pactada y la norma aplicable.</p>
-          <p>La plataforma organiza esa verificación exhaustiva. No sustituye el criterio profesional: entrega un inventario trazable y un borrador de informe para que el auditor concentre su tiempo en decidir.</p>
-        </div>
-        <aside class="diagnostico-panel" aria-labelledby="titulo-diagnostico-panel">
-          <h3 id="titulo-diagnostico-panel">Una revisión debe conectar</h3>
-          <ul>
-            <li><strong>Factura</strong><span>Inventario íntegro de cada cobro.</span></li>
-            <li><strong>Soportes</strong><span>Órdenes, registros y autorizaciones.</span></li>
-            <li><strong>Criterio clínico</strong><span>Pertinencia y contexto del caso.</span></li>
-            <li><strong>Norma y contrato</strong><span>Codificación y tarifa aplicables.</span></li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Cómo funciona -->
-    <section class="seccion seccion--metodo" id="como-funciona" aria-labelledby="titulo-como-funciona">
-      <div class="contenedor">
-        <div class="encabezado-seccion">
-          <p class="etiqueta">02 / Metodología de revisión</p>
-          <h2 id="titulo-como-funciona">¿Cómo funciona?</h2>
-          <p>La revisión sigue siete pasos. Cada posible hallazgo conserva la relación entre el cobro, el soporte y la regla que lo sustenta.</p>
-        </div>
-
-        <article class="metodo-destacado">
-          <div>
-            <p class="metodo-destacado__rotulo">Rigor documental</p>
-            <h3>Confrontación directa: del expediente al dato verificable</h3>
-            <p>La plataforma organiza la factura, los soportes clínicos, las autorizaciones y los registros de administración para compararlos bajo un mismo método de auditoría.</p>
-            <ul class="lista-chips" aria-label="Documentos relacionados">
-              <li>Factura</li><li>Historia clínica</li><li>Órdenes</li><li>Autorizaciones</li>
-            </ul>
-          </div>
-          <svg class="metodo-destacado__grafico" viewBox="0 0 420 280" role="img" aria-labelledby="titulo-grafico-documentos descripcion-grafico-documentos">
-            <title id="titulo-grafico-documentos">Expediente médico convertido en verificaciones relacionadas</title>
-            <desc id="descripcion-grafico-documentos">Varios documentos se conectan con una pantalla central que muestra una verificación aprobada.</desc>
-            <rect class="documento documento--fondo" x="42" y="38" width="190" height="206" rx="20" transform="rotate(-8 42 38)"/>
-            <rect class="documento" x="70" y="28" width="190" height="216" rx="20"/>
-            <path class="linea-documento" d="M104 76h116M104 106h82M104 136h116M104 166h94"/>
-            <rect class="pantalla" x="232" y="82" width="158" height="126" rx="24"/>
-            <circle class="pantalla__estado" cx="311" cy="132" r="26"/>
-            <path class="pantalla__check" d="m299 132 8 9 18-22"/>
-            <path class="conexion-documentos" d="M206 188c34 0 28-40 54-40"/>
-          </svg>
-        </article>
-
-        <ol class="pasos">
-          <li class="paso">
-            <div class="paso__numero" aria-hidden="true">1</div>
-            <div>
-              <h3>Se carga el expediente</h3>
-              <p>El auditor incorpora el expediente completo de la cuenta que va a revisar.</p>
-            </div>
-          </li>
-          <li class="paso">
-            <div class="paso__numero" aria-hidden="true">2</div>
-            <div>
-              <h3>Se reconstruye lo facturado</h3>
-              <p>El sistema arma un inventario íntegro de servicios, procedimientos, medicamentos e insumos.</p>
-            </div>
-          </li>
-          <li class="paso">
-            <div class="paso__numero" aria-hidden="true">3</div>
-            <div>
-              <h3>Se concilian medicamentos e insumos</h3>
-              <p>Compara, evento por evento, lo ordenado, lo administrado y lo facturado.</p>
-            </div>
-          </li>
-          <li class="paso">
-            <div class="paso__numero" aria-hidden="true">4</div>
-            <div>
-              <h3>Se revisan autorizaciones y pertinencia</h3>
-              <p>Cada ítem de valor material se cruza con sus autorizaciones y su sustento clínico.</p>
-            </div>
-          </li>
-          <li class="paso">
-            <div class="paso__numero" aria-hidden="true">5</div>
-            <div>
-              <h3>Se aplican verificaciones especializadas</h3>
-              <p>Busca duplicidades, complicaciones, infecciones asociadas a la atención y reglas de agrupación tarifaria.</p>
-            </div>
-          </li>
-          <li class="paso">
-            <div class="paso__numero" aria-hidden="true">6</div>
-            <div>
-              <h3>Se prepara y revisa el informe</h3>
-              <p>Organiza los hallazgos con la codificación oficial y ejecuta una doble pasada de autorrevisión.</p>
-            </div>
-          </li>
-          <li class="paso">
-            <div class="paso__numero" aria-hidden="true">7</div>
-            <div>
-              <h3>El auditor decide y firma</h3>
-              <p>La persona responsable revisa, corrige y aprueba; sin este paso no existe un informe definitivo.</p>
-            </div>
-          </li>
+    <section class="seccion seccion--metodo" id="como-funciona" aria-labelledby="titulo-metodo">
+      <div class="contenedor metodo-resumen">
+        <div><p class="etiqueta">Un proceso conectado</p><h2 id="titulo-metodo">Del documento<br> a la decisión.</h2><p class="entradilla">Una revisión útil no termina al encontrar una diferencia. Debe mostrar de dónde viene y por qué merece atención.</p><a class="enlace-flecha" href="plataforma.html#metodo">Explora los siete pasos <span aria-hidden="true">→</span></a></div>
+        <ol class="flujo-resumen">
+          <li><span class="flujo-resumen__numero">01</span><div><h3>Organiza el expediente</h3><p>Factura, historia clínica, órdenes y autorizaciones dentro de una misma revisión.</p></div></li>
+          <li><span class="flujo-resumen__numero">02</span><div><h3>Relaciona la evidencia</h3><p>Contrasta cobros y soportes para identificar posibles diferencias documentales, clínicas y tarifarias.</p></div></li>
+          <li><span class="flujo-resumen__numero">03</span><div><h3>Devuelve el control al auditor</h3><p>Un borrador con hallazgos y sustento. El profesional verifica, ajusta y firma.</p></div></li>
         </ol>
       </div>
     </section>
-
-    <!-- Red de trazabilidad -->
-    <section class="seccion seccion--red" id="red-trazabilidad" aria-labelledby="titulo-red">
+    <section class="seccion seccion--editorial" id="firma-humana" aria-labelledby="titulo-humano">
+      <div class="contenedor editorial-personas">
+        <figure class="foto-editorial"><img src="assets/equipo-medico-1200.webp" srcset="assets/equipo-medico-640.webp 640w, assets/equipo-medico-1200.webp 1200w" sizes="(max-width: 760px) calc(100vw - 40px), 45vw" width="1200" height="1800" loading="lazy" decoding="async" alt="Tres profesionales médicos revisando documentos y una tableta en equipo."><figcaption>Fotografía ilustrativa; no representa al equipo ni a clientes de AUDITTIA.</figcaption></figure>
+        <div><p class="etiqueta">La tecnología acompaña. El criterio permanece.</p><h2 id="titulo-humano">Más contexto para quien toma la decisión.</h2><p>La auditoría médica requiere experiencia, responsabilidad y una lectura completa del caso. AUDITTIA ayuda a organizar el trabajo sin reemplazar esa mirada profesional.</p><ul class="lista-verificada"><li>Hallazgos vinculados a su soporte.</li><li>Observaciones que se pueden revisar y corregir.</li><li>Sin informe definitivo antes de la aprobación humana.</li></ul><a class="enlace-flecha" href="nosotros.html">Conoce el origen de AUDITTIA <span aria-hidden="true">→</span></a></div>
+      </div>
+    </section>
+    <section class="seccion seccion--audiencias" id="para-quien" aria-labelledby="titulo-entidades">
       <div class="contenedor">
-        <div class="encabezado-seccion encabezado-seccion--centrado">
-          <p class="etiqueta">03 / Trazabilidad</p>
-          <h2 id="titulo-red">Red de trazabilidad y cruce pericial</h2>
-          <p>Cada hallazgo conserva el camino entre el cobro, el soporte, la regla aplicada y la decisión del auditor.</p>
-        </div>
-        <div class="orbita-documental" style="--n:7" role="img" aria-label="Fuentes que alimentan la auditoría: factura, historia clínica, órdenes, tarifas, registros de enfermería, autorizaciones y el auditor humano">
-          <div class="orbita-documental__centro">Cuenta<br>auditada</div>
-          <span>Factura</span><span>Historia clínica</span><span>Órdenes</span><span>Tarifas</span><span>Registros de enfermería</span><span>Autorizaciones</span><span class="orbita-documental__humano">Auditor humano</span>
+        <div class="encabezado-horizontal"><div><p class="etiqueta">Tu equipo, tu contexto</p><h2 id="titulo-entidades">Una base común.<br>Tres formas de trabajar.</h2></div><a class="enlace-flecha" href="para-entidades.html">Ver usos por entidad <span aria-hidden="true">→</span></a></div>
+        <div class="tarjetas-entidad">
+          <article><span class="sigla">EPS</span><h3>Entidades responsables del pago</h3><p>Organiza las cuentas recibidas y conserva el sustento de cada observación.</p><a class="enlace-flecha" href="para-entidades.html#eps">Explorar para EPS <span aria-hidden="true">→</span></a></article>
+          <article><span class="sigla">Firmas</span><h3>Equipos de auditoría</h3><p>Comparte una secuencia de revisión sin perder el criterio de cada profesional.</p><a class="enlace-flecha" href="para-entidades.html#firmas">Explorar para firmas <span aria-hidden="true">→</span></a></article>
+          <article><span class="sigla">IPS</span><h3>Prestadores de salud</h3><p>Busca diferencias y soportes faltantes antes de presentar una cuenta.</p><a class="enlace-flecha" href="para-entidades.html#ips">Explorar para IPS <span aria-hidden="true">→</span></a></article>
         </div>
       </div>
     </section>
-
-    <!-- Qué verifica -->
-    <section class="seccion seccion--verifica" id="que-verifica" aria-labelledby="titulo-que-verifica">
-      <div class="contenedor">
-        <div class="encabezado-seccion">
-          <p class="etiqueta">04 / Alcance</p>
-          <h2 id="titulo-que-verifica">¿Qué verifica?</h2>
-          <p>Estos son ejemplos generales de situaciones que la plataforma puede señalar para revisión. No corresponden a casos ni a clientes reales.</p>
-        </div>
-        <div class="cuadricula-tarjetas">
-          <article class="hallazgo">
-            <h3>Cobros duplicados</h3>
-            <p>Estudios o procedimientos que aparecen cobrados más de una vez bajo el mismo código.</p>
-          </article>
-          <article class="hallazgo">
-            <h3>Insumos sin administración</h3>
-            <p>Elementos facturados para los que no se encuentra un registro de uso o administración.</p>
-          </article>
-          <article class="hallazgo">
-            <h3>Diferencias en medicamentos</h3>
-            <p>Unidades facturadas que superan las registradas como administradas por enfermería.</p>
-          </article>
-          <article class="hallazgo">
-            <h3>Diferencias tarifarias</h3>
-            <p>Valores cobrados por encima de la tarifa que las partes acordaron.</p>
-          </article>
-          <article class="hallazgo">
-            <h3>Complicaciones a cargo del prestador</h3>
-            <p>Estancias o tratamientos derivados de eventos cuya responsabilidad debe revisar el auditor.</p>
-          </article>
-          <article class="hallazgo">
-            <h3>Falta de soporte o pertinencia</h3>
-            <p>Servicios sin respaldo documental suficiente o sin una justificación clínica sustentada.</p>
-          </article>
+    <section class="seccion" aria-labelledby="titulo-preguntas">
+      <div class="contenedor preguntas-inicio">
+        <div><p class="etiqueta">Antes de empezar</p><h2 id="titulo-preguntas">Hablemos con claridad.</h2><p>El alcance de la plataforma, el papel del auditor y lo que necesitas para conversar con nosotros.</p><a class="enlace-flecha" href="recursos.html#preguntas">Todas las preguntas <span aria-hidden="true">→</span></a></div>
+        <div class="preguntas" id="preguntas">
+          <details><summary>¿AUDITTIA reemplaza al auditor médico?</summary><div class="pregunta__respuesta"><p>No. Prepara verificaciones y un borrador. El auditor revisa los hallazgos, incorpora el contexto y mantiene la decisión y la firma.</p></div></details>
+          <details><summary>¿Cómo se manejan los datos sensibles?</summary><div class="pregunta__respuesta"><p>Antes de usar expedientes reales deben definirse y validarse los controles técnicos, los proveedores y las condiciones de tratamiento. Consulta el <a href="seguridad.html">alcance de seguridad</a>. Este sitio no recibe documentos de pacientes.</p></div></details>
+          <details id="ahorro-tiempo"><summary>¿Cuánto tiempo puede ahorrar mi equipo?</summary><div class="pregunta__respuesta"><p>Depende del tipo de cuenta, sus soportes y el proceso actual. No publicamos porcentajes sin mediciones verificadas. Podemos conversar sobre qué parte de tu flujo necesita apoyo.</p></div></details>
+          <details><summary>¿Qué debo compartir en el primer contacto?</summary><div class="pregunta__respuesta"><p>El tipo de entidad, el tamaño del equipo y una descripción general del proceso. No envíes historias clínicas, datos personales de pacientes ni expedientes por este canal.</p></div></details>
         </div>
       </div>
     </section>
-
-    <!-- Tiempo ahorrado -->
-    <section class="seccion seccion--tiempo" id="ahorro-tiempo" aria-labelledby="titulo-tiempo">
-      <div class="contenedor">
-        <div class="encabezado-seccion">
-          <p class="etiqueta">05 / Tiempo de trabajo</p>
-          <h2 id="titulo-tiempo">¿Cuánto tiempo puede ahorrar?</h2>
-          <p>Publicaremos esta comparación cuando esté respaldada por mediciones verificadas. No presentamos proyecciones como si fueran resultados.</p>
-        </div>
-        <div class="comparacion" aria-label="Comparación de tiempo antes y después">
-          <article class="comparacion__columna">
-            <h3>Revisión manual</h3>
-            <p class="comparacion__valor">[MÉTRICA_PENDIENTE_VALIDACIÓN: tiempo actual por cuenta de alta complejidad]</p>
-            <!-- TODO: reemplazar únicamente con una medición validada. -->
-            <p>Lectura, cruce y organización manual de los documentos del expediente.</p>
-          </article>
-          <article class="comparacion__columna">
-            <h3>Revisión con la plataforma</h3>
-            <p class="comparacion__valor">[MÉTRICA_PENDIENTE_VALIDACIÓN: tiempo con la plataforma por cuenta de alta complejidad]</p>
-            <!-- TODO: reemplazar únicamente con una medición validada. -->
-            <p>Verificación automatizada seguida por la evaluación, corrección y firma del auditor.</p>
-          </article>
-        </div>
-        <p class="metrica-pendiente"><strong>Ahorro por cuenta:</strong> [MÉTRICA_PENDIENTE_VALIDACIÓN: reducción de tiempo por cuenta de alta complejidad]</p>
-        <!-- TODO: reemplazar únicamente con una medición validada y conservar el contexto de la muestra. -->
-      </div>
-    </section>
-
-    <!-- Validación humana -->
-    <section class="seccion seccion--humano" aria-labelledby="titulo-auditor">
-      <div class="contenedor">
-        <div class="aviso-importante">
-          <div class="aviso-importante__marca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div>
-            <p class="etiqueta">Control obligatorio</p>
-            <h2 id="titulo-auditor">El auditor humano siempre revisa y firma</h2>
-            <p>La inteligencia artificial hace una verificación extensa y prepara el trabajo. El auditor determina si cada hallazgo es correcto, modifica lo necesario y asume la decisión profesional.</p>
-            <p>Esta revisión no es un trámite. Es el control de calidad que incorpora el contexto del caso y da respaldo profesional y jurídico al informe. La plataforma no emite por sí sola una glosa definitiva.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Para quién es -->
-    <section class="seccion seccion--audiencias" id="para-quien-es" aria-labelledby="titulo-para-quien">
-      <div class="contenedor">
-        <div class="encabezado-seccion">
-          <p class="etiqueta">06 / Entidades usuarias</p>
-          <h2 id="titulo-para-quien">¿Para quién es?</h2>
-        </div>
-        <div class="cuadricula-perfiles">
-          <article class="perfil">
-            <p class="perfil__sigla" aria-hidden="true">EPS</p>
-            <h3>Entidades responsables del pago</h3>
-            <p>Para revisar cuentas con un método uniforme, conservar la trazabilidad de los hallazgos y preparar informes para validación.</p>
-          </article>
-          <article class="perfil">
-            <p class="perfil__sigla" aria-hidden="true">FA</p>
-            <h3>Firmas auditoras</h3>
-            <p>Para dar a sus auditores una base de verificación consistente y atender más expedientes sin omitir el criterio profesional.</p>
-          </article>
-          <article class="perfil">
-            <p class="perfil__sigla" aria-hidden="true">IPS</p>
-            <h3>Prestadores de servicios de salud</h3>
-            <p>Para revisar sus propias cuentas antes de radicarlas e identificar soportes faltantes o diferencias que requieren corrección.</p>
-          </article>
-        </div>
-        <p class="llamado-inline">La licencia se contrata por puesto de auditor. Para conocer el alcance comercial, <a href="mailto:[CORREO_CONTACTO]">escríbenos por correo</a>.</p>
-      </div>
-    </section>
-
-    <!-- Tratamiento de datos -->
-    <section class="seccion seccion--datos" id="tratamiento-de-datos" aria-labelledby="titulo-datos">
-      <div class="contenedor">
-        <div class="encabezado-seccion">
-          <p class="etiqueta">Privacidad desde el proceso</p>
-          <h2 id="titulo-datos">¿Qué pasa con los datos de los pacientes?</h2>
-          <p>Los expedientes contienen datos de salud y, por tanto, información sensible con protección reforzada. Su tratamiento se limita a la auditoría contratada y se organiza alrededor de los siguientes controles.</p>
-        </div>
-
-        <div class="bloques-datos">
-          <article class="bloque-datos">
-            <h3>Seudonimización</h3>
-            <p>Antes de cualquier procesamiento externo se sustituyen identificadores directos como nombre, documento, dirección y teléfono. La reidentificación ocurre únicamente en el entorno del cliente.</p>
-          </article>
-          <article class="bloque-datos">
-            <h3>Retención cero con el proveedor de IA</h3>
-            <p>El servicio se configura bajo un acuerdo de retención cero: el proveedor del modelo no almacena las entradas ni las salidas del procesamiento.</p>
-          </article>
-          <article class="bloque-datos bloque-datos--enfasis">
-            <h3>Los datos no entrenan modelos</h3>
-            <p>Los datos de los clientes no se usan para entrenar modelos. Nunca.</p>
-          </article>
-          <article class="bloque-datos">
-            <h3>Aislamiento por cliente</h3>
-            <p>Cada entidad accede únicamente a sus propios expedientes y resultados.</p>
-          </article>
-        </div>
-
-        <p class="mas-informacion"><a class="enlace-flecha" href="seguridad.html#controles">Ver todos los controles <span aria-hidden="true">→</span></a></p>
-      </div>
-    </section>
-
-    <!-- Preguntas frecuentes -->
-    <section class="seccion seccion--preguntas" id="preguntas-frecuentes" aria-labelledby="titulo-preguntas">
-      <div class="contenedor contenido-angosto">
-        <div class="encabezado-seccion">
-          <p class="etiqueta">Respuestas directas</p>
-          <h2 id="titulo-preguntas">Preguntas frecuentes</h2>
-        </div>
-        <div class="preguntas">
-          <details>
-            <summary>¿La inteligencia artificial reemplaza al auditor?</summary>
-            <div class="pregunta__respuesta">
-              <p>No. La plataforma prepara verificaciones y un borrador estructurado. El auditor médico revisa cada hallazgo, corrige lo necesario y firma. Sin su aprobación no hay informe definitivo.</p>
-            </div>
-          </details>
-          <details>
-            <summary>¿Se usan nuestros datos para entrenar modelos?</summary>
-            <div class="pregunta__respuesta">
-              <p>No. Los datos de los clientes no se usan para entrenar modelos.</p>
-            </div>
-          </details>
-          <details>
-            <summary>¿Cómo se contrata?</summary>
-            <div class="pregunta__respuesta">
-              <p>La licencia es por puesto de auditor. No publicamos precios mientras se define el alcance para cada entidad. El primer paso es escribirnos por correo.</p>
-            </div>
-          </details>
-        </div>
-        <p class="mas-informacion"><a class="enlace-flecha" href="recursos.html#preguntas">Ver todas las preguntas <span aria-hidden="true">→</span></a></p>
-      </div>
-    </section>
-
-    <!-- Contacto -->
-    <section class="seccion" id="contacto" aria-labelledby="titulo-contacto">
-      <div class="contenedor">
-        <div class="contacto">
-          <div>
-            <p class="etiqueta">Conversemos</p>
-            <h2 id="titulo-contacto">Cuéntanos cómo auditas hoy</h2>
-            <p>En el primer correo es útil incluir el tipo de entidad, cuántos auditores participarían, cómo reciben los expedientes y qué parte del proceso quieren revisar.</p>
-          </div>
-          <a class="boton boton--claro" href="mailto:[CORREO_CONTACTO]">Escribir a [CORREO_CONTACTO]</a>
-        </div>
-      </div>
+    <section class="seccion seccion--contacto" id="contacto" aria-labelledby="titulo-contacto">
+      <div class="contenedor contacto"><div><p class="etiqueta">El siguiente paso empieza con una conversación</p><h2 id="titulo-contacto">Una mejor revisión comienza por entender tu proceso.</h2><p>Cuéntanos cómo trabaja tu equipo y qué necesita resolver.</p><a class="contacto__correo" href="mailto:carlosromero@audittia.com">carlosromero@audittia.com</a></div><div class="contacto__accion"><a class="boton boton--claro" href="mailto:carlosromero@audittia.com?subject=Conversemos%20sobre%20AUDITTIA">Conversemos por correo <span aria-hidden="true">↗</span></a><small>Sin compartir datos de pacientes.</small></div></div>
     </section>
   </main>
-
-  <!-- Pie de página -->
-  <footer class="pie" role="contentinfo">
-    <div class="contenedor">
-      <div class="pie__cabecera">
-        <div>
-          <p class="pie__marca">AUDITTIA</p>
-          <p>Auditoría de cuentas médicas con validación humana.</p>
-        </div>
-        <a class="boton boton--claro" href="mailto:[CORREO_CONTACTO]">Conversemos <span aria-hidden="true">→</span></a>
-      </div>
-      <div class="pie__rejilla">
-        <section>
-          <h2>Plataforma</h2>
-          <a href="plataforma.html#metodo">Cómo funciona</a>
-          <a href="plataforma.html#verificaciones">Qué verifica</a>
-          <a href="plataforma.html#firma-humana">Firma humana</a>
-        </section>
-        <section>
-          <h2>Entidades</h2>
-          <a href="para-entidades.html#eps">EPS</a>
-          <a href="para-entidades.html#firmas">Firmas auditoras</a>
-          <a href="para-entidades.html#ips">IPS</a>
-        </section>
-        <section>
-          <h2>Confianza</h2>
-          <a href="seguridad.html">Seguridad</a>
-          <a href="privacidad.html">Tratamiento de datos</a>
-          <a href="recursos.html#preguntas">Preguntas frecuentes</a>
-        </section>
-        <section>
-          <h2>Empresa</h2>
-          <a href="nosotros.html">Quiénes somos</a>
-          <a href="recursos.html">Recursos</a>
-          <a href="mailto:[CORREO_CONTACTO]">Contacto</a>
-        </section>
-      </div>
-      <p class="pie__aviso">Este sitio es informativo y no constituye asesoría médica ni jurídica. © 2026 AUDITTIA.</p>
-    </div>
-  </footer>
+  <footer class="pie"><div class="contenedor">
+    <div class="pie__cabecera"><div><p class="pie__marca">AUDITT<span>IA</span></p><p>Evidencia organizada. Decisiones humanas.</p></div><a class="enlace-flecha" href="mailto:carlosromero@audittia.com">carlosromero@audittia.com <span aria-hidden="true">↗</span></a></div>
+    <div class="pie__rejilla"><section><h2>Plataforma</h2><a href="plataforma.html#metodo">Cómo funciona</a><a href="plataforma.html#verificaciones">Qué verifica</a><a href="plataforma.html#firma-humana">Firma humana</a></section><section><h2>Para tu entidad</h2><a href="para-entidades.html#eps">EPS</a><a href="para-entidades.html#firmas">Firmas auditoras</a><a href="para-entidades.html#ips">IPS</a></section><section><h2>Confianza</h2><a href="seguridad.html">Seguridad</a><a href="privacidad.html">Privacidad</a><a href="recursos.html#preguntas">Preguntas frecuentes</a></section><section><h2>AUDITTIA</h2><a href="nosotros.html">Quiénes somos</a><a href="recursos.html">Recursos</a><a href="mailto:carlosromero@audittia.com">Contacto</a></section></div>
+    <div class="pie__aviso"><p>© 2026 AUDITTIA · Colombia</p><p>Sitio informativo. No constituye asesoría médica ni jurídica.</p><a href="#contenido-principal">Volver arriba ↑</a></div>
+  </div></footer>
 </body>
 </html>

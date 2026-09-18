@@ -2,189 +2,112 @@
 <html lang="es-CO">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Borrador de la política de tratamiento de la información de AUDITTIA, pendiente de revisión jurídica.">
+  <meta name="description" content="Información sobre privacidad al navegar audittia.com, contacto por correo y alcance del tratamiento de datos en el sitio.">
   <meta name="theme-color" content="#0077c8">
-  <meta property="og:title" content="Política de tratamiento de la información | AUDITTIA">
-  <meta property="og:description" content="Estructura preliminar de la política de tratamiento de la información, pendiente de revisión jurídica.">
+  <meta property="og:title" content="Privacidad del sitio | AUDITTIA">
+  <meta property="og:description" content="Alcance del sitio informativo, datos técnicos, contacto por correo y precauciones con información sensible.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CO">
-  <!-- <meta property="og:image" content="[URL_IMAGEN_SOCIAL]"> -->
-  <title>Política de tratamiento de la información | AUDITTIA</title>
+  <link rel="canonical" href="https://audittia.com/privacidad.html">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <meta property="og:url" content="https://audittia.com/privacidad.html">
+  <meta property="og:image" content="https://audittia.com/assets/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AUDITTIA. Evidencia organizada. Decisiones humanas.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fonts/work-sans-600.woff2" as="font" type="font/woff2" crossorigin>
+  <title>Privacidad del sitio | AUDITTIA</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="interiores.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
   <!-- Accesibilidad -->
   <a class="saltar-contenido" href="#contenido-principal">Saltar al contenido principal</a>
 
-  <div class="barra-utilidad">
-    <div class="contenedor barra-utilidad__interior">
-      <p>Auditoría médica asistida para el sistema de salud colombiano</p>
-      <nav aria-label="Enlaces institucionales"><a href="privacidad.html" aria-current="page">Tratamiento de datos</a><a href="recursos.html#preguntas">Preguntas frecuentes</a></nav>
-    </div>
-  </div>
-
-  <!-- Encabezado -->
-  <header class="encabezado" role="banner">
+  <div class="barra-utilidad" role="region" aria-label="Información institucional"><div class="contenedor barra-utilidad__interior"><p>Auditoría médica asistida · Colombia</p><nav aria-label="Enlaces institucionales"><a href="privacidad.html" aria-current="page">Privacidad</a><a href="recursos.html#preguntas">Preguntas frecuentes</a></nav></div></div>
+  <header class="encabezado">
     <div class="contenedor encabezado__interior">
-      <a class="marca" href="index.html" aria-label="AUDITTIA, volver al inicio">
-        <img src="assets/audittia-logo.png" width="412" height="123" alt="AUDITTIA, asistente de IA para auditoría médica">
-      </a>
-      <nav class="navegacion" aria-label="Navegación de la política">
-        <ul class="navegacion__lista">
-          <li><a href="plataforma.html">Plataforma</a></li>
-          <li><a href="para-entidades.html">Para entidades</a></li>
-          <li><a href="seguridad.html">Seguridad</a></li>
-          <li><a href="nosotros.html">Nosotros</a></li>
-          <li><a href="recursos.html">Recursos</a></li>
-        </ul>
-      </nav>
-      <details class="menu-movil">
-        <summary>Menú</summary>
-        <nav aria-label="Navegación móvil"><a href="plataforma.html">Plataforma</a><a href="para-entidades.html">Para entidades</a><a href="seguridad.html">Seguridad</a><a href="nosotros.html">Nosotros</a><a href="recursos.html">Recursos</a><a href="mailto:[CORREO_CONTACTO]">Contacto</a></nav>
-      </details>
-      <a class="boton boton--compacto" href="mailto:[CORREO_CONTACTO]">Escríbenos por correo</a>
+      <a class="marca" href="index.html" aria-label="AUDITTIA, página de inicio"><img src="assets/audittia-logo.png" width="412" height="123" alt="AUDITTIA, asistente de IA para auditoría médica"></a>
+      <nav class="navegacion" aria-label="Navegación principal"><ul class="navegacion__lista"><li><a href="plataforma.html">Plataforma</a></li><li><a href="para-entidades.html">Para entidades</a></li><li><a href="seguridad.html">Seguridad</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="recursos.html">Recursos</a></li></ul></nav>
+      <details class="menu-movil"><summary>Menú</summary><nav aria-label="Navegación móvil"><a href="plataforma.html">Plataforma</a><a href="para-entidades.html">Para entidades</a><a href="seguridad.html">Seguridad</a><a href="nosotros.html">Nosotros</a><a href="recursos.html">Recursos</a><a href="mailto:carlosromero@audittia.com">Contacto</a></nav></details>
+      <a class="boton boton--compacto" href="mailto:carlosromero@audittia.com">Conversemos <span aria-hidden="true">↗</span></a>
     </div>
   </header>
 
   <main id="contenido-principal" tabindex="-1">
-    <!-- Introducción del borrador -->
+    <!-- Alcance informativo del sitio, distinto del servicio de auditoría. -->
     <section class="hero hero--interior" aria-labelledby="titulo-politica">
       <div class="contenedor contenido-angosto">
-        <p class="etiqueta">Documento preliminar</p>
-        <h1 id="titulo-politica">Política de tratamiento de la información</h1>
-        <div class="aviso-borrador" role="note" aria-label="Aviso sobre el estado del documento">
-          <strong>Borrador pendiente de revisión legal.</strong>
-          <p>Esta página contiene únicamente la estructura de la política. No debe publicarse como documento definitivo hasta que un profesional jurídico redacte y revise todo su contenido.</p>
-        </div>
+        <nav class="migas migas--claro" aria-label="Migas de pan"><a href="index.html">Inicio</a><span aria-hidden="true">/</span><span>Privacidad</span></nav>
+        <p class="etiqueta etiqueta--hero">Transparencia</p>
+        <h1 id="titulo-politica">Información de privacidad del sitio</h1>
+        <p class="hero-pagina__resumen">Qué ocurre al navegar audittia.com, cómo funciona el contacto por correo y qué debes revisar antes de utilizar la plataforma con datos reales.</p>
       </div>
     </section>
 
-    <!-- Esqueleto de la política -->
     <section class="seccion" aria-labelledby="titulo-estructura-politica">
       <div class="contenedor contenido-angosto politica">
-        <h2 id="titulo-estructura-politica">Contenido que deberá completar la política</h2>
-
-        <section aria-labelledby="identificacion">
-          <h3 id="identificacion">1. Identificación del Responsable y del Encargado del Tratamiento</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
-        </section>
-
-        <section aria-labelledby="marco-normativo">
-          <h3 id="marco-normativo">2. Marco normativo aplicable</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
-        </section>
+        <h2 id="titulo-estructura-politica">El alcance de esta información</h2>
+        <div class="aviso-borrador" role="note" aria-label="Alcance de la información de privacidad">
+          <strong>Esta página describe el sitio informativo, no el tratamiento de expedientes en la plataforma.</strong>
+          <p>La política de tratamiento y los acuerdos del servicio de auditoría requieren definición y revisión jurídica antes de recibir documentos clínicos. Este contenido no sustituye esos documentos ni constituye asesoría jurídica.</p>
+        </div>
 
         <section aria-labelledby="alcance">
-          <h3 id="alcance">3. Alcance de la política</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
-        </section>
-
-        <section aria-labelledby="definiciones">
-          <h3 id="definiciones">4. Definiciones</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
-        </section>
-
-        <section aria-labelledby="principios">
-          <h3 id="principios">5. Principios para el tratamiento de datos personales</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
-        </section>
-
-        <section aria-labelledby="categorias">
-          <h3 id="categorias">6. Categorías de datos tratados</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
-        </section>
-
-        <section aria-labelledby="finalidades">
-          <h3 id="finalidades">7. Finalidades del tratamiento</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
-        </section>
-
-        <section aria-labelledby="datos-sensibles">
-          <h3 id="datos-sensibles">8. Tratamiento de datos sensibles y datos de salud</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
-        </section>
-
-        <section aria-labelledby="autorizacion">
-          <h3 id="autorizacion">9. Autorización y bases que permiten el tratamiento</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
-        </section>
-
-        <section aria-labelledby="derechos">
-          <h3 id="derechos">10. Derechos de los titulares</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
-        </section>
-
-        <section aria-labelledby="procedimiento">
-          <h3 id="procedimiento">11. Procedimiento para consultas, reclamos y solicitudes</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
-        </section>
-
-        <section aria-labelledby="canales">
-          <h3 id="canales">12. Canales de atención y persona o área responsable</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
-        </section>
-
-        <section aria-labelledby="deberes">
-          <h3 id="deberes">13. Deberes del Responsable y del Encargado</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
-        </section>
-
-        <section aria-labelledby="transmisiones">
-          <h3 id="transmisiones">14. Transmisiones y transferencias nacionales e internacionales</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
-        </section>
-
-        <section aria-labelledby="seguridad">
-          <h3 id="seguridad">15. Medidas de seguridad, confidencialidad y gestión de incidentes</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
-        </section>
-
-        <section aria-labelledby="seudonimizacion">
-          <h3 id="seudonimizacion">16. Seudonimización, aislamiento y trazabilidad</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
-        </section>
-
-        <section aria-labelledby="proveedores">
-          <h3 id="proveedores">17. Proveedores tecnológicos y uso de inteligencia artificial</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
-        </section>
-
-        <section aria-labelledby="retencion">
-          <h3 id="retencion">18. Retención, conservación y eliminación de la información</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
+          <h3 id="alcance">1. Al navegar el sitio</h3>
+          <p>audittia.com publica información sobre AUDITTIA. No tiene formularios de registro, cuentas de usuario, pagos ni un mecanismo para cargar expedientes.</p>
+          <p>Al solicitar una página, tu navegador comunica datos técnicos al servidor que la entrega. El sitio está alojado en GitHub Pages, que registra direcciones IP por motivos de seguridad, según su <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">documentación sobre recopilación de datos</a>. La ausencia de formularios no significa que no exista tratamiento técnico de datos.</p>
         </section>
 
         <section aria-labelledby="cookies">
-          <h3 id="cookies">19. Cookies, analítica y servicios de terceros</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
+          <h3 id="cookies">2. Cookies, analítica y contenido externo</h3>
+          <p>El código de este sitio no instala cookies ni incorpora herramientas propias de analítica publicitaria o seguimiento. Las fuentes y las imágenes se sirven junto con el sitio, sin cargar widgets de terceros.</p>
+          <p>Los enlaces a otros sitios llevan a servicios con sus propias condiciones. Esta descripción corresponde a la versión actual de la web y deberá revisarse si se incorporan nuevas herramientas.</p>
         </section>
 
-        <section aria-labelledby="cambios">
-          <h3 id="cambios">20. Cambios a la política y mecanismos de aviso</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
+        <section aria-labelledby="canales">
+          <h3 id="canales">3. Al contactarnos por correo</h3>
+          <p>Los botones de contacto abren la aplicación o el servicio de correo configurado en tu dispositivo. El sitio no envía el mensaje automáticamente: tú decides qué escribir y cuándo enviarlo.</p>
+          <p>Puedes escribir a <a href="mailto:carlosromero@audittia.com">carlosromero@audittia.com</a> para consultas sobre AUDITTIA. Incluye únicamente la información de contacto y el contexto institucional necesario para tu pregunta.</p>
+          <p>El envío y la recepción utilizan proveedores de correo, con sus propias condiciones de servicio. No prometemos un plazo de conservación del correo que no esté documentado.</p>
         </section>
 
-        <section aria-labelledby="vigencia">
-          <h3 id="vigencia">21. Vigencia de la política y de las bases de datos</h3>
-          <!-- TODO: redactar con asesoría jurídica -->
+        <section aria-labelledby="datos-sensibles">
+          <h3 id="datos-sensibles">4. No envíes datos de pacientes</h3>
+          <p>El canal de contacto inicial no está destinado a recibir historias clínicas, documentos de identidad, facturas identificables ni otros datos sensibles. Describe tu necesidad sin adjuntar expedientes.</p>
+          <p>Si se requiere revisar un ejemplo documental, primero se deberán acordar el alcance, las medidas de protección y el canal adecuado. No cargues información clínica en este sitio ni en enlaces que no hayan sido confirmados.</p>
+        </section>
+
+        <section aria-labelledby="seguridad">
+          <h3 id="seguridad">5. Antes de utilizar la plataforma</h3>
+          <p>El tratamiento de expedientes exige documentación distinta de esta página. Antes de usar datos reales deben definirse, entre otros asuntos:</p>
+          <ul>
+            <li>La identidad y las responsabilidades de las partes, la finalidad y las instrucciones de tratamiento.</li>
+            <li>Los proveedores tecnológicos, los controles de acceso y las condiciones de uso de inteligencia artificial.</li>
+            <li>La conservación, devolución y eliminación de documentos, así como la atención de solicitudes e incidentes.</li>
+          </ul>
+          <p>Consulta el <a href="seguridad.html">enfoque de seguridad y sus requisitos de validación</a>. Las afirmaciones de diseño no equivalen a una certificación ni reemplazan pruebas técnicas o revisión jurídica.</p>
+        </section>
+
+        <section aria-labelledby="procedimiento">
+          <h3 id="procedimiento">6. Preguntas sobre esta información</h3>
+          <p>Para preguntar por el alcance de esta página o informar un problema de privacidad, escribe a <a href="mailto:carlosromero@audittia.com">carlosromero@audittia.com</a>. Describe el asunto sin reenviar información sensible.</p>
+          <p id="cambios">Esta información deberá actualizarse si cambia la forma en que funciona el sitio, se incorporan servicios externos o se habilitan nuevos canales de contacto.</p>
         </section>
       </div>
     </section>
   </main>
 
   <!-- Pie de página -->
-  <footer class="pie" role="contentinfo">
-    <div class="contenedor">
-      <div class="pie__cabecera"><div><p class="pie__marca">AUDITTIA</p><p>Auditoría de cuentas médicas con validación humana.</p></div><a class="boton boton--claro" href="mailto:[CORREO_CONTACTO]">Conversemos <span aria-hidden="true">→</span></a></div>
-      <div class="pie__rejilla">
-        <section><h2>Plataforma</h2><a href="plataforma.html#metodo">Cómo funciona</a><a href="plataforma.html#verificaciones">Qué verifica</a><a href="plataforma.html#firma-humana">Firma humana</a></section>
-        <section><h2>Entidades</h2><a href="para-entidades.html#eps">EPS</a><a href="para-entidades.html#firmas">Firmas auditoras</a><a href="para-entidades.html#ips">IPS</a></section>
-        <section><h2>Confianza</h2><a href="seguridad.html">Seguridad</a><a href="privacidad.html" aria-current="page">Tratamiento de datos</a><a href="recursos.html#preguntas">Preguntas frecuentes</a></section>
-        <section><h2>Empresa</h2><a href="nosotros.html">Quiénes somos</a><a href="recursos.html">Recursos</a><a href="mailto:[CORREO_CONTACTO]">Contacto</a></section>
-      </div>
-      <p class="pie__aviso">Este borrador no constituye asesoría jurídica ni una política definitiva. © 2026 AUDITTIA.</p>
-    </div>
-  </footer>
+  <footer class="pie"><div class="contenedor">
+    <div class="pie__cabecera"><div><p class="pie__marca">AUDITT<span>IA</span></p><p>Evidencia organizada. Decisiones humanas.</p></div><a class="enlace-flecha" href="mailto:carlosromero@audittia.com">carlosromero@audittia.com <span aria-hidden="true">↗</span></a></div>
+    <div class="pie__rejilla"><section><h2>Plataforma</h2><a href="plataforma.html#metodo">Cómo funciona</a><a href="plataforma.html#verificaciones">Qué verifica</a><a href="plataforma.html#firma-humana">Firma humana</a></section><section><h2>Para tu entidad</h2><a href="para-entidades.html#eps">EPS</a><a href="para-entidades.html#firmas">Firmas auditoras</a><a href="para-entidades.html#ips">IPS</a></section><section><h2>Confianza</h2><a href="seguridad.html">Seguridad</a><a href="privacidad.html">Privacidad</a><a href="recursos.html#preguntas">Preguntas frecuentes</a></section><section><h2>AUDITTIA</h2><a href="nosotros.html">Quiénes somos</a><a href="recursos.html">Recursos</a><a href="mailto:carlosromero@audittia.com">Contacto</a></section></div>
+    <div class="pie__aviso"><p>© 2026 AUDITTIA · Colombia</p><p>Sitio informativo. No constituye asesoría médica ni jurídica.</p><a href="#contenido-principal">Volver arriba ↑</a></div>
+  </div></footer>
 </body>
 </html>

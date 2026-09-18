@@ -2,6 +2,8 @@
 <html lang="es-CO">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Conoce el origen de AUDITTIA y el equipo familiar que une auditoría médica e ingeniería de datos.">
   <meta name="theme-color" content="#0077c8">
@@ -9,18 +11,29 @@
   <meta property="og:description" content="Criterio médico e ingeniería en un método trazable para la auditoría de cuentas médicas.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CO">
+  <link rel="canonical" href="https://audittia.com/nosotros.html">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <meta property="og:url" content="https://audittia.com/nosotros.html">
+  <meta property="og:image" content="https://audittia.com/assets/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AUDITTIA. Evidencia organizada. Decisiones humanas.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fonts/work-sans-600.woff2" as="font" type="font/woff2" crossorigin>
   <title>Nosotros | AUDITTIA</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="interiores.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
   <a class="saltar-contenido" href="#contenido-principal">Saltar al contenido principal</a>
-  <div class="barra-utilidad"><div class="contenedor barra-utilidad__interior"><p>Auditoría médica asistida para el sistema de salud colombiano</p><nav aria-label="Enlaces institucionales"><a href="privacidad.html">Tratamiento de datos</a><a href="recursos.html#preguntas">Preguntas frecuentes</a></nav></div></div>
-  <header class="encabezado" role="banner">
+  <div class="barra-utilidad" role="region" aria-label="Información institucional"><div class="contenedor barra-utilidad__interior"><p>Auditoría médica asistida · Colombia</p><nav aria-label="Enlaces institucionales"><a href="privacidad.html">Privacidad</a><a href="recursos.html#preguntas">Preguntas frecuentes</a></nav></div></div>
+  <header class="encabezado">
     <div class="contenedor encabezado__interior">
       <a class="marca" href="index.html" aria-label="AUDITTIA, página de inicio"><img src="assets/audittia-logo.png" width="412" height="123" alt="AUDITTIA, asistente de IA para auditoría médica"></a>
       <nav class="navegacion" aria-label="Navegación principal"><ul class="navegacion__lista"><li><a href="plataforma.html">Plataforma</a></li><li><a href="para-entidades.html">Para entidades</a></li><li><a href="seguridad.html">Seguridad</a></li><li><a href="nosotros.html" aria-current="page">Nosotros</a></li><li><a href="recursos.html">Recursos</a></li></ul></nav>
-      <details class="menu-movil"><summary>Menú</summary><nav aria-label="Navegación móvil"><a href="plataforma.html">Plataforma</a><a href="para-entidades.html">Para entidades</a><a href="seguridad.html">Seguridad</a><a href="nosotros.html" aria-current="page">Nosotros</a><a href="recursos.html">Recursos</a><a href="mailto:[CORREO_CONTACTO]">Contacto</a></nav></details>
-      <a class="boton boton--compacto" href="mailto:[CORREO_CONTACTO]">Escríbenos por correo</a>
+      <details class="menu-movil"><summary>Menú</summary><nav aria-label="Navegación móvil"><a href="plataforma.html">Plataforma</a><a href="para-entidades.html">Para entidades</a><a href="seguridad.html">Seguridad</a><a href="nosotros.html" aria-current="page">Nosotros</a><a href="recursos.html">Recursos</a><a href="mailto:carlosromero@audittia.com">Contacto</a></nav></details>
+      <a class="boton boton--compacto" href="mailto:carlosromero@audittia.com">Conversemos <span aria-hidden="true">↗</span></a>
     </div>
   </header>
 
@@ -30,11 +43,11 @@
         <div>
           <nav class="migas" aria-label="Migas de pan"><a href="index.html">Inicio</a><span aria-hidden="true">/</span><span>Nosotros</span></nav>
           <p class="etiqueta">Una empresa familiar</p>
-          <h1 id="titulo-nosotros">Criterio médico convertido en un método que puede verificarse.</h1>
+          <h1 id="titulo-nosotros">La experiencia médica, acompañada de ingeniería.</h1>
           <p class="hero-pagina__resumen">AUDITTIA reúne la experiencia de auditoría médica y la ingeniería necesaria para aplicarla de manera sistemática, sin separar la tecnología de la responsabilidad profesional.</p>
           <a class="boton" href="#equipo">Conocer el equipo <span aria-hidden="true">↓</span></a>
         </div>
-        <div class="escena-marca" aria-label="AUDITTIA une criterio médico, datos y trazabilidad">
+        <div class="escena-marca" role="img" aria-label="AUDITTIA une criterio médico, datos y trazabilidad">
           <img src="assets/audittia-logo.png" width="412" height="123" alt="">
           <span>Criterio médico</span><span>Ingeniería</span><span>Trazabilidad</span>
         </div>
@@ -42,20 +55,18 @@
     </section>
 
     <section class="franja-mision" aria-labelledby="titulo-mision-nosotros">
-      <div class="contenedor franja-mision__interior"><p class="etiqueta">Por qué existe AUDITTIA</p><h2 id="titulo-mision-nosotros">Para que la profundidad de una revisión no dependa de cuánto tiempo tarde una persona en encontrar cada relación dentro del expediente.</h2></div>
+      <div class="contenedor franja-mision__interior"><p class="etiqueta">Por qué existe AUDITTIA</p><h2 id="titulo-mision-nosotros">Menos tiempo buscando soportes. Más atención al criterio que exige cada cuenta.</h2></div>
     </section>
 
     <section class="seccion seccion--equipo" id="equipo" aria-labelledby="titulo-equipo-nosotros">
       <div class="contenedor">
-        <div class="encabezado-seccion"><p class="etiqueta">Dos disciplinas, un producto</p><h2 id="titulo-equipo-nosotros">El equipo fundador</h2><p>Los nombres e imágenes definitivos continúan señalados como contenido pendiente antes de publicación.</p></div>
-        <div class="equipo equipo--retratos">
-          <article class="miembro miembro--retrato">
-            <div class="miembro__foto-reservada"><span>AM</span><small>Espacio para retrato</small></div>
-            <div><h3>[NOMBRE_PADRE]</h3><p class="miembro__cargo">Auditor médico senior</p><p>Cuenta con veinte años de experiencia en el Sistema General de Seguridad Social en Salud colombiano. Aporta el criterio médico y normativo y es autor del instructivo de auditoría sobre el que opera la plataforma.</p></div>
+        <div class="encabezado-seccion"><p class="etiqueta">Dos disciplinas, un propósito</p><h2 id="titulo-equipo-nosotros">El equipo detrás del método</h2><p>La experiencia de revisión clínica y la ingeniería de datos trabajan juntas desde la definición de cada verificación.</p></div>
+        <div class="equipo">
+          <article class="miembro">
+            <div><p class="miembro__cargo">Criterio clínico y documental</p><h3>Auditoría médica</h3><p>Define el instructivo de revisión, interpreta el contexto clínico y orienta las reglas documentales y normativas. Su experiencia transforma las preguntas de una auditoría en un método de trabajo.</p></div>
           </article>
-          <article class="miembro miembro--retrato">
-            <div class="miembro__foto-reservada miembro__foto-reservada--lima"><span>AD</span><small>Espacio para retrato</small></div>
-            <div><h3>[NOMBRE_HIJO]</h3><p class="miembro__cargo">Analista de datos y desarrollador</p><p>Construye la plataforma, convierte el método de auditoría en verificaciones trazables y desarrolla la capa analítica sobre el histórico de glosas.</p></div>
+          <article class="miembro">
+            <div><p class="miembro__cargo">Desarrollo y análisis</p><h3>Ingeniería de datos</h3><p>Construye el flujo de revisión, organiza las relaciones entre documentos y convierte el instructivo en verificaciones trazables. Diseña herramientas para que el auditor pueda revisar la evidencia, no solo el resultado.</p></div>
           </article>
         </div>
       </div>
@@ -88,20 +99,13 @@
       <div class="contenedor bloque-editorial"><div class="bloque-editorial__texto"><p class="etiqueta">Del equipo al producto</p><h2 id="titulo-conocer-producto">Mira cómo el método se convierte en una revisión</h2><p>La página de plataforma muestra el flujo de siete pasos, las categorías generales de verificación y el control obligatorio del auditor.</p></div><aside class="tarjeta-documento"><span>Recorrido</span><h3>Conoce la plataforma</h3><p>Del expediente cargado al borrador que debe evaluar el auditor.</p><a class="boton" href="plataforma.html">Ver el recorrido</a></aside></div>
     </section>
 
-    <section class="seccion" aria-labelledby="titulo-contacto-nosotros"><div class="contenedor contacto"><div><p class="etiqueta">Hablemos</p><h2 id="titulo-contacto-nosotros">Cuéntanos qué parte de la auditoría quieres fortalecer</h2><p>El primer contacto se realiza directamente por correo.</p></div><a class="boton boton--claro" href="mailto:[CORREO_CONTACTO]">Escribir a [CORREO_CONTACTO]</a></div></section>
+    <section class="seccion" aria-labelledby="titulo-contacto-nosotros"><div class="contenedor contacto"><div><p class="etiqueta">Hablemos</p><h2 id="titulo-contacto-nosotros">¿Qué parte de la auditoría quieres fortalecer?</h2><p>Cuéntanos el contexto de tu entidad. No incluyas historias clínicas ni datos de pacientes en este primer contacto.</p></div><a class="boton boton--claro" href="mailto:carlosromero@audittia.com">Conversemos por correo <span aria-hidden="true">↗</span></a></div></section>
   </main>
 
-  <footer class="pie" role="contentinfo">
-    <div class="contenedor">
-      <div class="pie__cabecera"><div><p class="pie__marca">AUDITTIA</p><p>Auditoría de cuentas médicas con validación humana.</p></div><a class="boton boton--claro" href="mailto:[CORREO_CONTACTO]">Conversemos <span aria-hidden="true">→</span></a></div>
-      <div class="pie__rejilla">
-        <section><h2>Plataforma</h2><a href="plataforma.html#metodo">Cómo funciona</a><a href="plataforma.html#verificaciones">Qué verifica</a><a href="plataforma.html#firma-humana">Firma humana</a></section>
-        <section><h2>Entidades</h2><a href="para-entidades.html#eps">EPS</a><a href="para-entidades.html#firmas">Firmas auditoras</a><a href="para-entidades.html#ips">IPS</a></section>
-        <section><h2>Confianza</h2><a href="seguridad.html">Seguridad</a><a href="privacidad.html">Tratamiento de datos</a><a href="recursos.html#preguntas">Preguntas frecuentes</a></section>
-        <section><h2>Empresa</h2><a href="nosotros.html">Quiénes somos</a><a href="recursos.html">Recursos</a><a href="mailto:[CORREO_CONTACTO]">Contacto</a></section>
-      </div>
-      <p class="pie__aviso">Este sitio es informativo y no constituye asesoría médica ni jurídica. © 2026 AUDITTIA.</p>
-    </div>
-  </footer>
+  <footer class="pie"><div class="contenedor">
+    <div class="pie__cabecera"><div><p class="pie__marca">AUDITT<span>IA</span></p><p>Evidencia organizada. Decisiones humanas.</p></div><a class="enlace-flecha" href="mailto:carlosromero@audittia.com">carlosromero@audittia.com <span aria-hidden="true">↗</span></a></div>
+    <div class="pie__rejilla"><section><h2>Plataforma</h2><a href="plataforma.html#metodo">Cómo funciona</a><a href="plataforma.html#verificaciones">Qué verifica</a><a href="plataforma.html#firma-humana">Firma humana</a></section><section><h2>Para tu entidad</h2><a href="para-entidades.html#eps">EPS</a><a href="para-entidades.html#firmas">Firmas auditoras</a><a href="para-entidades.html#ips">IPS</a></section><section><h2>Confianza</h2><a href="seguridad.html">Seguridad</a><a href="privacidad.html">Privacidad</a><a href="recursos.html#preguntas">Preguntas frecuentes</a></section><section><h2>AUDITTIA</h2><a href="nosotros.html">Quiénes somos</a><a href="recursos.html">Recursos</a><a href="mailto:carlosromero@audittia.com">Contacto</a></section></div>
+    <div class="pie__aviso"><p>© 2026 AUDITTIA · Colombia</p><p>Sitio informativo. No constituye asesoría médica ni jurídica.</p><a href="#contenido-principal">Volver arriba ↑</a></div>
+  </div></footer>
 </body>
 </html>

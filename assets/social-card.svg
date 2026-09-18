@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0077c8"/>
+  <circle cx="1130" cy="115" r="150" fill="none" stroke="#b5d333" stroke-width="55"/>
+  <circle cx="1170" cy="610" r="180" fill="#004b87"/>
+  <rect x="68" y="55" width="342" height="104" rx="12" fill="#fff"/>
+  <image x="84" y="61" width="310" height="92" xlink:href="audittia-logo.png"/>
+  <g font-family="Arial, sans-serif">
+    <text x="68" y="260" fill="#e0f394" font-size="21" letter-spacing="3">AUDITORÍA MÉDICA ASISTIDA · COLOMBIA</text>
+    <text x="68" y="354" fill="#fff" font-size="68" font-weight="700">Evidencia organizada.</text>
+    <text x="68" y="438" fill="#fff" font-size="68" font-weight="700">Decisiones humanas.</text>
+    <rect x="68" y="509" width="52" height="4" rx="2" fill="#b5d333"/>
+    <text x="138" y="520" fill="#fff" font-size="26">audittia.com</text>
+  </g>
+</svg>

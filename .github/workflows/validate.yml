@@ -1,0 +1,34 @@
+name: Validar sitio estático
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Leer repositorio
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Preparar Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Validar páginas y recursos locales
+        run: python3 scripts/check_site.py
+      - name: Preparar únicamente los archivos públicos
+        run: python3 scripts/build_site.py
+      - name: Validar el artefacto publicable
+        run: python3 scripts/check_site.py --root .site
