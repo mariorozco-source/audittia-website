@@ -235,7 +235,7 @@
 .ciclo-datos li > span { color: var(--azul-profundo); font-weight: 600; font-size: .875rem; }
 .ciclo-datos strong { display: block; margin-bottom: .375rem; }
 
-/* Seguridad: separar el enfoque, las responsabilidades y la evidencia pendiente. */
+/* Seguridad: protección, recorrido de datos y alcance de los controles. */
 .escudo-datos {
   display: flex;
   flex-direction: column;
@@ -265,6 +265,87 @@
 .tarjetas-roles h3 { font-size: 1.375rem; }
 .tarjetas-roles li { margin-bottom: .5rem; }
 .tarjetas-roles ul { padding-left: 1.125rem; }
+
+/* Componentes exclusivos de Seguridad; se conserva el sistema visual del sitio. */
+.proteccion-ejemplo {
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: 1.5rem;
+  background: var(--azul-noche);
+  min-width: 0;
+}
+.proteccion-ejemplo__etiqueta {
+  color: var(--verde-lima-claro);
+  font-size: .8125rem;
+  font-weight: 600;
+}
+.proteccion-ejemplo__paso {
+  padding: 1.25rem;
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: .875rem;
+  background: rgb(255 255 255 / 4%);
+}
+.proteccion-ejemplo__paso > span { color: var(--azul-cielo); font-size: .75rem; }
+.proteccion-ejemplo__paso > p { margin-top: .625rem; font-size: 1.0625rem; }
+.proteccion-ejemplo__paso--protegido { border-color: var(--verde-lima); }
+.proteccion-ejemplo code {
+  display: inline-block;
+  color: var(--verde-lima-claro);
+  font-size: .9375rem;
+  overflow-wrap: anywhere;
+}
+.proteccion-ejemplo__filtro {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin: 1rem 0;
+  color: var(--azul-cielo);
+  font-size: .8125rem;
+}
+.proteccion-ejemplo__filtro > span { color: var(--verde-lima-claro); font-size: 1.5rem; }
+.proteccion-ejemplo__bloqueo {
+  margin: 1.25rem 0 0;
+  padding-left: .875rem;
+  border-left: 3px solid var(--verde-lima);
+  font-size: .875rem;
+}
+.proteccion-ejemplo figcaption { margin-top: 1rem; color: var(--azul-cielo); }
+.pagina-seguridad .bloques-datos { gap: 2rem; }
+.control-numero {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--azul-profundo);
+  font-size: .8125rem;
+  font-weight: 600;
+}
+.seguridad-ia { background: var(--azul-hielo); }
+.seguridad-ia .enlace-flecha { margin-top: .5rem; }
+.comparacion-seguridad { border: var(--interior-borde); border-radius: 1rem; overflow: hidden; }
+.comparacion-seguridad table { width: 100%; border-collapse: collapse; text-align: left; }
+.comparacion-seguridad caption {
+  padding: 1rem 1.5rem;
+  color: var(--gris-texto);
+  text-align: left;
+  font-size: .8125rem;
+}
+.comparacion-seguridad th,
+.comparacion-seguridad td { padding: 1.25rem 1.5rem; vertical-align: top; }
+.comparacion-seguridad thead { background: var(--azul-noche); color: var(--blanco); }
+.comparacion-seguridad th { width: 38%; font-size: .9375rem; font-weight: 600; }
+.comparacion-seguridad td { color: var(--gris-texto); font-size: .9375rem; }
+.comparacion-seguridad tbody tr + tr { border-top: var(--interior-borde); }
+.comparacion-seguridad tbody tr:nth-child(even) { background: var(--azul-hielo); }
+.preguntas-seguridad { align-self: start; min-width: 0; }
+.preguntas-seguridad details:first-child { border-top: var(--interior-borde); }
+.preguntas-seguridad summary { font-size: 1rem; }
+.preguntas-seguridad .pregunta__respuesta { font-size: .9375rem; }
+
+@media (max-width: 760px) {
+  .comparacion-seguridad caption { padding: 1rem; }
+  .comparacion-seguridad th,
+  .comparacion-seguridad td { padding: 1rem .75rem; font-size: .8125rem; overflow-wrap: anywhere; }
+  .comparacion-seguridad th { width: 40%; }
+}
 .tarjeta-documento { padding: var(--interior-espacio); border: var(--interior-borde); border-top: 3px solid var(--azul); border-radius: 1rem; background: var(--blanco); }
 .tarjeta-documento > span { display: inline-block; margin-bottom: 1rem; color: var(--azul-profundo); font-size: .8125rem; font-weight: 600; }
 .tarjeta-documento h3 { font-size: 1.5rem; line-height: 1.35; }

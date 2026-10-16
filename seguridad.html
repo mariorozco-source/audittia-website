@@ -5,10 +5,10 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Conoce el enfoque de AUDITTIA para el tratamiento de datos sensibles, la seudonimización, el aislamiento y la trazabilidad.">
+  <meta name="description" content="Cómo AUDITTIA protege la información clínica: seudonimización, detección de identificadores, datos mínimos para la IA y controles de privacidad verificables.">
   <meta name="theme-color" content="#003b5c">
   <meta property="og:title" content="Seguridad y datos | AUDITTIA">
-  <meta property="og:description" content="Principios y controles previstos para el tratamiento de expedientes de cuentas médicas.">
+  <meta property="og:description" content="Protección antes del envío a la IA, retención cero para funciones elegibles y evidencia de los controles del motor de auditoría.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CO">
   <link rel="canonical" href="https://audittia.com/seguridad.html">
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="interiores.css">
   <script src="site.js" defer></script>
 </head>
-<body>
+<body class="pagina-seguridad">
   <a class="saltar-contenido" href="#contenido-principal">Saltar al contenido principal</a>
   <div class="barra-utilidad" role="region" aria-label="Información institucional"><div class="contenedor barra-utilidad__interior"><p>Auditoría médica asistida · Colombia</p><nav aria-label="Enlaces institucionales"><a href="privacidad.html">Privacidad</a><a href="recursos.html#preguntas">Preguntas frecuentes</a></nav></div></div>
   <header class="encabezado">
@@ -42,65 +42,89 @@
       <div class="contenedor hero-pagina__interior">
         <div>
           <nav class="migas migas--claro" aria-label="Migas de pan"><a href="index.html">Inicio</a><span aria-hidden="true">/</span><span>Seguridad</span></nav>
-          <p class="etiqueta etiqueta--hero">Privacidad desde el proceso</p>
-          <h1 id="titulo-seguridad">Los datos clínicos exigen límites explícitos.</h1>
-          <p class="hero-pagina__resumen">Conoce los criterios de protección que deben revisarse antes de integrar AUDITTIA en el proceso de tu entidad. La seguridad requiere evidencia, responsabilidades y acuerdos claros.</p>
-          <div class="grupo-botones"><a class="boton boton--blanco" href="#controles">Qué debemos verificar <span aria-hidden="true">↓</span></a><a class="boton boton--contorno-claro" href="privacidad.html">Privacidad del sitio</a></div>
+          <p class="etiqueta etiqueta--hero">Seguridad y protección de datos</p>
+          <h1 id="titulo-seguridad">La privacidad forma parte de cada auditoría.</h1>
+          <p class="hero-pagina__resumen">Detrás de cada expediente hay una persona. Por eso nuestro motor sustituye identificadores antes del análisis, revisa lo que se envía a la IA y bloquea el envío si detecta datos personales reconocibles.</p>
+          <div class="grupo-botones"><a class="boton boton--blanco" href="#controles">Cómo protegemos los datos <span aria-hidden="true">↓</span></a><a class="boton boton--contorno-claro" href="#diferenciales">Qué nos diferencia</a></div>
         </div>
-        <div class="escudo-datos" role="img" aria-label="Representación de capas de protección alrededor de un expediente clínico">
-          <div class="escudo-datos__orbita"><span>Acceso</span><span>Cifrado</span><span>Aislamiento</span><span>Trazabilidad</span></div>
-          <div class="escudo-datos__centro"><b aria-hidden="true">+</b><strong>Expediente</strong><span>Uso limitado a la finalidad pactada</span></div>
-          <p>Enfoque de diseño<br>Controles sujetos a validación técnica</p>
-        </div>
+        <figure class="proteccion-ejemplo">
+          <p class="proteccion-ejemplo__etiqueta">Antes de una consulta a la IA</p>
+          <div class="proteccion-ejemplo__paso"><span>01 / En el entorno de auditoría</span><p>Nombre, documento y datos de contacto</p></div>
+          <p class="proteccion-ejemplo__filtro"><span aria-hidden="true">↓</span> Sustitución + revisión de identificadores</p>
+          <div class="proteccion-ejemplo__paso proteccion-ejemplo__paso--protegido"><span>02 / Texto preparado</span><p>Paciente <code>[[PAC_1]]</code><br>Documento <code>[[DOC_1]]</code></p></div>
+          <p class="proteccion-ejemplo__bloqueo">Si la revisión detecta un identificador, el envío se detiene.</p>
+          <figcaption>Ejemplo ilustrativo, sin datos reales. El contenido clínico necesario conserva su carácter sensible.</figcaption>
+        </figure>
       </div>
     </section>
 
     <section class="franja-mision franja-mision--oscura" aria-labelledby="titulo-regla-datos">
-      <div class="contenedor franja-mision__interior"><p class="etiqueta">Regla de diseño</p><h2 id="titulo-regla-datos">Procesar solo lo necesario, durante el tiempo necesario y bajo instrucciones documentadas.</h2></div>
+      <div class="contenedor franja-mision__interior"><p class="etiqueta">Nuestro criterio</p><h2 id="titulo-regla-datos">Cada dato que evitamos exponer es una protección más para el paciente y para tu entidad.</h2></div>
     </section>
 
     <section class="seccion seccion--datos" id="controles" aria-labelledby="titulo-controles-seguridad">
       <div class="contenedor">
-        <div class="encabezado-seccion"><p class="etiqueta">01 / Requisitos de protección</p><h2 id="titulo-controles-seguridad">Lo que se debe acordar antes de procesar un expediente</h2><p>Esta página describe controles previstos, no una certificación ni una auditoría del servicio. Su implementación, alcance y condiciones deben comprobarse técnicamente y documentarse con cada entidad antes de tratar datos reales.</p></div>
+        <div class="encabezado-seccion"><p class="etiqueta">01 / Protección incorporada al motor</p><h2 id="titulo-controles-seguridad">Varias capas para reducir la exposición</h2><p>Estos controles ya forman parte del motor de auditoría. Protegen la preparación de los documentos, las consultas a la IA y la generación de resultados.</p></div>
         <div class="bloques-datos bloques-datos--tarjetas">
-          <article class="bloque-datos bloque-datos--amplio"><h3>Finalidad documentada</h3><p>Definir qué información se necesita, para qué revisión se utilizará y qué instrucciones entrega la entidad.</p></article>
-          <article class="bloque-datos"><h3>Identificadores protegidos</h3><p>Validar el mecanismo de sustitución de identificadores, sus límites y quién puede restablecer la relación con el paciente.</p></article>
-          <article class="bloque-datos"><h3>Datos mínimos</h3><p>Acordar los campos clínicos y documentales indispensables para cada verificación. No solicitar información adicional sin finalidad.</p></article>
-          <article class="bloque-datos"><h3>Condiciones del proveedor de IA</h3><p>Comprobar proveedor, servicio, ubicación del procesamiento y condiciones de conservación. La retención cero no se presume.</p></article>
-          <article class="bloque-datos bloque-datos--enfasis"><h3>Uso para entrenamiento</h3><p>Exigir que el uso permitido y la exclusión de entrenamiento estén respaldados por configuración y acuerdos verificables.</p></article>
-          <article class="bloque-datos"><h3>Cifrado verificable</h3><p>Revisar la protección de los datos durante su envío, almacenamiento y respaldo, además de la gestión de claves.</p></article>
-          <article class="bloque-datos"><h3>Separación entre entidades</h3><p>Probar los permisos y el aislamiento entre clientes. Una declaración de diseño no sustituye las pruebas de acceso.</p></article>
-          <article class="bloque-datos"><h3>Registro de actividad</h3><p>Definir los eventos registrados, los usuarios autorizados para consultarlos y la protección de esos registros.</p></article>
-          <article class="bloque-datos"><h3>Conservación y cierre</h3><p>Acordar plazos, respaldos, devolución y eliminación. Documentar cómo se comprueba el cierre del tratamiento.</p></article>
+          <article class="bloque-datos"><span class="control-numero" aria-hidden="true">01</span><h3>Identificadores sustituidos</h3><p>Reemplazamos los nombres y los identificadores detectados de pacientes, familiares y profesionales por marcadores. También buscamos documentos, teléfonos, correos y direcciones en los textos.</p></article>
+          <article class="bloque-datos"><span class="control-numero" aria-hidden="true">02</span><h3>Segunda revisión de nombres</h3><p>Antes de consultar la IA, una capa adicional busca nombres en el texto libre y vuelve a sustituir los identificadores ya reconocidos cuando aparecen en otras partes del expediente.</p></article>
+          <article class="bloque-datos bloque-datos--enfasis"><span class="control-numero" aria-hidden="true">03</span><h3>Bloqueo antes del envío</h3><p>El texto preparado y las instrucciones pasan por un control de identificadores. Si este detecta un dato personal, la solicitud se detiene antes de llegar al proveedor de IA.</p></article>
+          <article class="bloque-datos"><span class="control-numero" aria-hidden="true">04</span><h3>Información según la tarea</h3><p>Los pasos con IA reciben extractos preparados para la verificación que deben resolver. Las reglas y los cálculos deterministas se ejecutan en el motor, reduciendo el contenido que necesita procesamiento externo.</p></article>
+          <article class="bloque-datos"><span class="control-numero" aria-hidden="true">05</span><h3>La relación con la identidad queda local</h3><p>El mapa que vincula los marcadores con los datos originales se mantiene en memoria durante la ejecución. No se incluye en las consultas a la IA ni en el resumen de seudonimización que guardamos.</p></article>
+          <article class="bloque-datos"><span class="control-numero" aria-hidden="true">06</span><h3>Resultados intermedios revisados</h3><p>Antes de guardar resultados intermedios, aplicamos de nuevo el control de identificadores. Los archivos de las corridas se crean fuera del repositorio y con permisos restringidos al usuario que los genera.</p></article>
+          <article class="bloque-datos"><span class="control-numero" aria-hidden="true">07</span><h3>Credenciales fuera del navegador</h3><p>Las claves del proveedor de IA se manejan en el entorno de ejecución del motor. El cliente preparado para el servidor no genera grabaciones de las respuestas del proveedor.</p></article>
+          <article class="bloque-datos"><span class="control-numero" aria-hidden="true">08</span><h3>Informe con identidad controlada</h3><p>La identidad se restituye localmente al generar el informe cuando su formato la exige. Se comprueban los marcadores del caso y las secciones permitidas. Ese informe es un documento confidencial.</p></article>
+          <article class="bloque-datos bloque-datos--enfasis"><span class="control-numero" aria-hidden="true">09</span><h3>Pruebas que buscan fallos de privacidad</h3><p>La batería de pruebas comprueba sustituciones, detección de fugas, bloqueo de envíos y escritura de archivos. Incluye variaciones de nombres, identificadores de terceros y la restitución de datos en el informe.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="seccion seccion--roles" aria-labelledby="titulo-roles">
+    <section class="seccion seguridad-ia" id="ia-y-datos" aria-labelledby="titulo-ia-datos">
+      <div class="contenedor bloque-editorial">
+        <div class="bloque-editorial__texto"><p class="etiqueta">02 / IA con límites de uso</p><h2 id="titulo-ia-datos">Retención cero para las funciones de IA elegibles</h2><p>AUDITTIA tiene registrada la activación de retención cero (ZDR) en su organización de Anthropic desde el 14 de octubre de 2026. El motor utiliza la API de mensajes, con texto preparado y revisado antes del envío.</p><p>La retención cero tiene un alcance concreto: para las solicitudes cubiertas, el proveedor no almacena los mensajes y las respuestas en reposo una vez devuelta la respuesta, sujeto a sus condiciones y excepciones. El motor no utiliza las API de archivos ni de procesamiento por lotes.</p><a class="enlace-flecha" href="https://platform.claude.com/docs/en/manage-claude/api-and-data-retention">Consultar el alcance publicado por Anthropic <span aria-hidden="true">↗</span></a></div>
+        <aside class="tarjeta-documento"><span>Datos, finalidad y conservación</span><h3>También importa qué se conserva</h3><p>El tratamiento por la API comercial no contempla entrenamiento de modelos sin permiso expreso, según las condiciones del proveedor.</p><p>En nuestra integración, la caché de instrucciones se aplica al manual de auditoría, sin datos de pacientes. Los extractos clínicos se envían sin esa marca de caché.</p><p>La retención cero del proveedor no elimina los informes ni los registros locales de AUDITTIA. Sus plazos se definen por separado con la entidad.</p></aside>
+      </div>
+    </section>
+
+    <section class="seccion" id="diferenciales" aria-labelledby="titulo-diferenciales">
       <div class="contenedor">
-        <div class="encabezado-seccion encabezado-seccion--centrado"><p class="etiqueta">02 / Responsabilidades</p><h2 id="titulo-roles">Quién decide y quién procesa</h2><p>El esquema previsto debe confirmarse en el acuerdo de tratamiento aplicable a cada servicio.</p></div>
-        <div class="tarjetas-roles">
-          <article><p class="tarjetas-roles__sigla">R</p><h3>La entidad define el alcance</h3><p>En el esquema previsto, la entidad determina la finalidad y documenta sus instrucciones.</p><ul><li>Establecer qué cuentas se revisan.</li><li>Autorizar usuarios y acceso.</li><li>Definir la atención a los titulares.</li></ul></article>
-          <article><p class="tarjetas-roles__sigla">E</p><h3>AUDITTIA ejecuta lo acordado</h3><p>El servicio se plantea como un tratamiento por cuenta de la entidad, sujeto a las condiciones pactadas.</p><ul><li>Documentar los controles aplicables.</li><li>Limitar el uso a la finalidad autorizada.</li><li>Acordar el apoyo ante solicitudes e incidentes.</li></ul></article>
+        <div class="encabezado-seccion"><p class="etiqueta">03 / Qué nos diferencia</p><h2 id="titulo-diferenciales">Protección que se puede explicar y comprobar</h2><p>Al elegir un proveedor, tu entidad necesita entender qué ocurre con cada dato. Nuestra diferencia está en incorporar controles al recorrido del expediente y poder mostrar cómo funcionan.</p></div>
+        <div class="comparacion-seguridad">
+          <table>
+            <caption>Criterios para evaluar la protección de datos de un servicio de auditoría con IA</caption>
+            <thead><tr><th scope="col">Qué debe poder demostrar un proveedor</th><th scope="col">Cómo lo abordamos en AUDITTIA</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Qué protege antes de consultar la IA</th><td>Seudonimización, una segunda capa de nombres y un control que bloquea las solicitudes con identificadores detectados.</td></tr>
+              <tr><th scope="row">Cuánta información necesita enviar</th><td>Extractos por tarea y cálculos deterministas en el motor, para reducir la exposición al procesamiento externo.</td></tr>
+              <tr><th scope="row">Qué condiciones tiene el proveedor de IA</th><td>Uso de la API de mensajes, registro de activación ZDR y revisión del alcance por función. La conservación local se trata por separado.</td></tr>
+              <tr><th scope="row">Qué pruebas respaldan sus afirmaciones</th><td>Pruebas de privacidad sobre identificadores, envíos bloqueados, archivos intermedios e informes. Compartimos el alcance en la revisión técnica.</td></tr>
+              <tr><th scope="row">Quién conserva el criterio profesional</th><td>Los pasos con IA se contrastan con citas del expediente. El auditor humano revisa los hallazgos y valida el informe antes de su uso definitivo.</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
 
     <section class="seccion seccion--ciclo" aria-labelledby="titulo-ciclo-datos">
       <div class="contenedor bloque-editorial">
-        <div class="bloque-editorial__texto"><p class="etiqueta">03 / Ciclo del expediente</p><h2 id="titulo-ciclo-datos">Un punto de control en cada etapa</h2><p>Usa este recorrido como guía para la conversación técnica previa a la contratación. Los controles deben verificarse desde el ingreso hasta la eliminación acordada.</p></div>
-        <ol class="ciclo-datos"><li><span>01</span><div><strong>Ingreso</strong><p>Verificar permisos y canal de transmisión.</p></div></li><li><span>02</span><div><strong>Preparación</strong><p>Revisar datos mínimos e identificadores.</p></div></li><li><span>03</span><div><strong>Procesamiento</strong><p>Validar proveedor, finalidad y separación entre clientes.</p></div></li><li><span>04</span><div><strong>Revisión</strong><p>Comprobar permisos y registro de actividad.</p></div></li><li><span>05</span><div><strong>Cierre</strong><p>Confirmar plazos, devolución y eliminación.</p></div></li></ol>
+        <div class="bloque-editorial__texto"><p class="etiqueta">04 / Recorrido de la información</p><h2 id="titulo-ciclo-datos">Del expediente al informe, con controles en cada paso</h2><p>La protección acompaña el trabajo de auditoría. La información clínica sigue siendo sensible después de sustituir sus identificadores y requiere cuidado durante todo el proceso.</p></div>
+        <ol class="ciclo-datos"><li><span>01</span><div><strong>Preparar en el entorno de auditoría</strong><p>Leer los soportes y sustituir los identificadores reconocidos antes del análisis.</p></div></li><li><span>02</span><div><strong>Reducir y revisar</strong><p>Preparar el extracto para cada tarea, aplicar la segunda capa de nombres y comprobar identificadores.</p></div></li><li><span>03</span><div><strong>Consultar y verificar</strong><p>Enviar el texto que supera el control y contrastar las respuestas con citas del expediente.</p></div></li><li><span>04</span><div><strong>Generar para revisión humana</strong><p>Revisar resultados intermedios y restituir localmente la identidad en el informe cuando corresponde.</p></div></li><li><span>05</span><div><strong>Acordar la conservación</strong><p>Definir con la entidad los plazos, las copias, la entrega y la eliminación aplicables a sus documentos.</p></div></li></ol>
       </div>
     </section>
 
-    <section class="seccion seccion--glosario" aria-labelledby="titulo-marco-juridico">
+    <section class="seccion seccion--glosario" aria-labelledby="titulo-alcance-seguridad">
       <div class="contenedor bloque-editorial">
-        <div class="bloque-editorial__texto"><p class="etiqueta">Antes de usar datos reales</p><h2 id="titulo-marco-juridico">La documentación forma parte de la puesta en marcha</h2><p>La política de tratamiento de la plataforma y los acuerdos aplicables requieren definición y revisión jurídica antes de recibir expedientes. Esta página no acredita cumplimiento normativo ni reemplaza esa documentación.</p></div>
-        <aside class="tarjeta-documento"><span>Sitio y plataforma</span><h3>Son dos alcances distintos</h3><p>Este sitio es informativo y no recibe expedientes. Consulta qué ocurre al navegar o contactarnos por correo.</p><a class="boton boton--secundario" href="privacidad.html">Información de privacidad</a></aside>
+        <div class="bloque-editorial__texto"><p class="etiqueta">05 / Transparencia</p><h2 id="titulo-alcance-seguridad">Lo que tu entidad debe conocer</h2><p>Antes de incorporar expedientes de una entidad, se deben formalizar la finalidad, las instrucciones de tratamiento, los usuarios autorizados y los plazos de conservación. La documentación contractual y la revisión jurídica forman parte de la puesta en marcha.</p><p>Esta página describe avances del motor a octubre de 2026. El aislamiento entre entidades, los permisos de la plataforma y la protección de la infraestructura requieren su propia validación antes del uso compartido.</p></div>
+        <div class="preguntas preguntas-seguridad">
+          <details><summary>¿Seudonimizar equivale a anonimizar?</summary><div class="pregunta__respuesta"><p>No. Sustituimos identificadores reconocidos, pero conservamos datos clínicos necesarios, como fechas, diagnósticos y valores. El contexto puede permitir identificar a una persona y la detección automática tiene límites. Por eso seguimos tratando los extractos como información sensible.</p></div></details>
+          <details><summary>¿Retención cero significa que no se guarda nada?</summary><div class="pregunta__respuesta"><p>Se refiere al tratamiento del proveedor de IA para funciones elegibles y bajo sus condiciones, incluidas excepciones por seguridad u obligaciones legales. En el entorno local de desarrollo se conservan respuestas para repetir pruebas; el cliente preparado para el servidor no las graba. Los informes y archivos locales tienen un ciclo de conservación propio.</p></div></details>
+          <details><summary>¿Puedo solicitar evidencia de los controles?</summary><div class="pregunta__respuesta"><p>Sí. En la conversación técnica podemos revisar el flujo de datos, el alcance de las pruebas y las condiciones aplicables al proveedor de IA. La confirmación escrita del alcance ZDR debe formar parte de la documentación de puesta en marcha.</p></div></details>
+          <details><summary>¿Qué datos recoge este sitio web?</summary><div class="pregunta__respuesta"><p>Este sitio es informativo y no recibe expedientes. No incorpora formularios de carga, cookies de seguimiento ni herramientas de analítica. Consulta los detalles del alojamiento y del contacto por correo en la <a href="privacidad.html">información de privacidad</a>.</p></div></details>
+        </div>
       </div>
     </section>
 
-    <section class="seccion" aria-labelledby="titulo-contacto-seguridad"><div class="contenedor contacto"><div><p class="etiqueta">Preguntas de seguridad</p><h2 id="titulo-contacto-seguridad">Solicita una conversación técnica</h2><p>Cuéntanos qué controles necesitas revisar. No envíes expedientes ni datos de pacientes por este canal.</p></div><a class="boton boton--claro" href="mailto:carlosromero@audittia.com">Conversemos por correo <span aria-hidden="true">↗</span></a></div></section>
+    <section class="seccion" aria-labelledby="titulo-contacto-seguridad"><div class="contenedor contacto"><div><p class="etiqueta">Hablemos con evidencia</p><h2 id="titulo-contacto-seguridad">Revisemos la protección que necesita tu entidad</h2><p>Conversemos sobre el flujo de datos y los controles de tu proceso. No envíes expedientes ni datos de pacientes por este canal.</p></div><a class="boton boton--claro" href="mailto:carlosromero@audittia.com">Solicitar revisión técnica <span aria-hidden="true">↗</span></a></div></section>
   </main>
 
   <footer class="pie"><div class="contenedor">

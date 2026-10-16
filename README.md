@@ -17,7 +17,7 @@ Abre http://127.0.0.1:8000/ (sin punto después de index.html). Si aparece un li
 - index.html: resumen, accesos por necesidad, método, revisión humana, entidades y contacto.
 - plataforma.html: proceso y verificaciones; la interfaz ilustrada no es una aplicación real.
 - para-entidades.html: EPS, firmas auditoras e IPS.
-- seguridad.html: requisitos del producto que deben validarse antes de tratar datos reales.
+- seguridad.html: controles incorporados al motor, alcance de la retención cero, diferenciales y condiciones de puesta en marcha. Evidencia y límites en SEGURIDAD-CONTENIDO.md.
 - nosotros.html: propósito, disciplinas del equipo y principios.
 - recursos.html: glosario y preguntas frecuentes.
 - privacidad.html: información del sitio, distinta de los acuerdos de tratamiento de la plataforma.
@@ -66,7 +66,7 @@ No subir información confidencial: aunque el artefacto no incluye documentació
 
 La CSP y la política de referrer están en cada HTML. GitHub Pages no permite configurar aquí todos los encabezados HTTP: HSTS, nosniff, Permissions-Policy y protección anti-iframe siguen requiriendo una solución compatible en la capa de alojamiento. No se simulan mediante etiquetas meta no soportadas. No cambiar DNS, MX ni registros de Google Workspace al actualizar archivos.
 
-No publicar garantías sobre aislamiento, retención cero, cifrado de la plataforma o certificaciones sin pruebas y contratos. Antes de procesar expedientes reales se necesita la documentación técnica y jurídica correspondiente.
+Las afirmaciones de seguridad deben corresponder al alcance documentado en SEGURIDAD-CONTENIDO.md. La activación ZDR consta en la documentación del motor; falta archivar su confirmación escrita. No extenderla a funciones no elegibles, almacenamiento local ni informes. El aislamiento entre entidades, el cifrado de la plataforma y las certificaciones requieren evidencia propia. Antes de incorporar expedientes de una entidad se necesita la documentación técnica y jurídica correspondiente.
 
 ## Diseño y mantenimiento
 
