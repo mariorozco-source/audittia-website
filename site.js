@@ -8,60 +8,57 @@
 
   const video = document.querySelector(".hero__video");
   if (video && "IntersectionObserver" in window) {
-    const control = document.querySelector(".hero__video-control");
     const fallback = document.querySelector(".hero__video-fallback");
     let visible = false;
-    let userPaused = false;
-    let userRequested = false;
     let failed = false;
-    const updateControl = () => {
-      control.textContent = video.ended ? "Volver a reproducir" : video.paused ? "Reproducir video" : "Pausar video";
+    let restartTimer;
+    const clearRestart = () => {
+      window.clearTimeout(restartTimer);
+      restartTimer = undefined;
     };
-    const shouldPlay = () => visible && !document.hidden && !userPaused && !video.ended && !failed && (!motion.matches || userRequested);
+    const canPlay = () => visible && !document.hidden && !failed && !motion.matches;
+    const play = () => {
+      video.play().then(() => {
+        if (!canPlay()) video.pause();
+      }).catch(() => { /* Si se bloquea autoplay, permanece la portada. */ });
+    };
     const syncPlayback = () => {
-      if (shouldPlay()) {
-        video.play().then(() => {
-          // La pestaña o la preferencia pueden cambiar mientras carga el MP4.
-          if (!shouldPlay()) video.pause();
-        }).catch(updateControl);
-      } else video.pause();
+      video.hidden = failed || motion.matches;
+      fallback.hidden = !video.hidden;
+      if (!canPlay()) {
+        clearRestart();
+        video.pause();
+        return;
+      }
+      if (video.ended) {
+        // Mantener el último fotograma durante cinco segundos, sin recargar el MP4.
+        if (restartTimer !== undefined) return;
+        restartTimer = window.setTimeout(() => {
+          restartTimer = undefined;
+          if (!canPlay()) return;
+          video.currentTime = 0;
+          play();
+        }, 5000);
+      } else play();
     };
     const videoObserver = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting && entry.intersectionRatio >= 0.2;
       syncPlayback();
     }, { threshold: [0, 0.2] });
-    videoObserver.observe(video);
-    control.hidden = false;
-    video.controls = false;
-    control.addEventListener("click", () => {
-      if (!video.paused) {
-        userPaused = true;
-        video.pause();
-      } else {
-        userPaused = false;
-        userRequested = true;
-        if (video.ended) video.currentTime = 0;
-        syncPlayback();
-      }
-    });
-    ["play", "pause", "ended"].forEach((event) => video.addEventListener(event, updateControl));
+    videoObserver.observe(video.parentElement);
+    video.addEventListener("ended", syncPlayback);
     const showFallback = () => {
       failed = true;
-      video.pause();
-      video.hidden = true;
-      control.hidden = true;
-      fallback.hidden = false;
+      syncPlayback();
       videoObserver.disconnect();
     };
     video.addEventListener("error", showFallback);
     video.querySelector("source").addEventListener("error", showFallback);
     document.addEventListener("visibilitychange", syncPlayback);
-    window.addEventListener("pagehide", () => video.pause());
+    window.addEventListener("pagehide", () => { clearRestart(); video.pause(); });
     window.addEventListener("pageshow", syncPlayback);
-    motion.addEventListener("change", () => {
-      userRequested = false;
-      syncPlayback();
-    });
+    motion.addEventListener("change", syncPlayback);
+    syncPlayback();
   }
 
   // Sólo opacity/transform: sin alterar el flujo de lectura ni ocultar contenido
