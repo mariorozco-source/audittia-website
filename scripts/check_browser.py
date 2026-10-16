@@ -78,7 +78,8 @@ def main():
             const original = Element.prototype.animate;
             window.__motionCalls = [];
             Element.prototype.animate = function(frames, options) {
-                window.__motionCalls.push({element: this, frames, duration: options.duration, delay: options.delay || 0});
+                // La demostración de Plataforma tiene su propia prueba de secuencia.
+                if (!this.closest('.mockup-producto')) window.__motionCalls.push({element: this, frames, duration: options.duration, delay: options.delay || 0});
                 return original.call(this, frames, options);
             };
         })();""")
@@ -104,7 +105,7 @@ def main():
                         && calls.every(call => !call.element.closest('.hero, .hero-pagina, .hero--interior'))
                         && !calls.some(a => calls.some(b => a !== b && a.element.contains(b.element)));
                 })()"""), f"Movimiento repetitivo, anidado o excesivo en {name}@{width}"
-                assert moving.evaluate("document.getAnimations().length") == 0, "Una animación continúa indefinidamente."
+                assert moving.evaluate("document.getAnimations().filter(a => !a.effect?.target?.closest('.mockup-producto')).length") == 0, "Una animación continúa indefinidamente."
                 # Subir y volver a bajar no debe reproducir ninguna entrada.
                 for offset in (0, height, 0):
                     moving.evaluate("y => window.scrollTo(0, y)", offset)
@@ -148,7 +149,7 @@ def main():
         assert moving.evaluate("window.__motionCalls.length") == 0, "Se animó la llegada por enlace profundo."
         moving.locator('a[href="#contenido-principal"]').last.click()
         moving.wait_for_timeout(100)
-        assert moving.evaluate("document.getAnimations().length") == 0, "El salto a una sección dejó animaciones activas."
+        assert moving.evaluate("document.getAnimations().filter(a => !a.effect?.target?.closest('.mockup-producto')).length") == 0, "El salto a una sección dejó animaciones activas."
 
         moving.set_viewport_size({"width": 390, "height": 844})
         moving.goto(base, wait_until="networkidle")
@@ -156,10 +157,10 @@ def main():
         moving.wait_for_timeout(1100)
         moving.locator(".preguntas summary").first.click()
         moving.wait_for_timeout(30)
-        assert moving.evaluate("document.getAnimations().length") > 0, "No se activó el fundido de respuesta."
+        assert moving.evaluate("document.getAnimations().filter(a => !a.effect?.target?.closest('.mockup-producto')).length") > 0, "No se activó el fundido de respuesta."
         moving.emulate_media(reduced_motion="reduce")
         moving.wait_for_timeout(100)
-        assert moving.evaluate("document.getAnimations().length") == 0, "No se canceló el movimiento."
+        assert moving.evaluate("document.getAnimations().filter(a => !a.effect?.target?.closest('.mockup-producto')).length") == 0, "No se canceló el movimiento."
         count = moving.evaluate("window.__motionCalls.length")
         moving.locator(".preguntas summary").nth(1).click()
         moving.wait_for_timeout(100)

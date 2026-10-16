@@ -112,7 +112,7 @@
 }
 .mockup-producto__barra i { width: .45rem; height: .45rem; border-radius: 50%; background: var(--gris-texto); }
 .mockup-producto__barra span { margin-left: .5rem; font-weight: 600; }
-.mockup-producto__cuerpo { display: grid; grid-template-columns: 8rem minmax(0, 1fr); }
+.mockup-producto__cuerpo { position: relative; display: grid; grid-template-columns: 8rem minmax(0, 1fr); }
 .mockup-producto__cuerpo aside {
   display: grid;
   align-content: start;
@@ -127,12 +127,16 @@
 .mockup-producto__cuerpo aside .activo { background: var(--azul-cielo); color: var(--azul-profundo); border-radius: .25rem; }
 .mockup-producto__panel { min-width: 0; padding: 1.5rem 1.125rem; }
 .mockup-producto__estado { display: grid; gap: .5rem; font-size: .75rem; }
+.mockup-producto__estado > span { display: flex; align-items: center; min-height: 2.5em; }
 .mockup-producto__estado strong { justify-self: start; padding: .35rem .625rem; background: var(--crema); border-radius: .375rem; }
 .mockup-producto__lineas { display: grid; gap: .875rem; padding-block: 1.75rem; }
 .mockup-producto__lineas i { height: .5rem; background: var(--gris-borde); border-radius: .25rem; }
 .mockup-producto__lineas i:nth-child(2) { width: 80%; }
 .mockup-producto__lineas i:nth-child(4) { width: 65%; }
 .mockup-producto__hallazgo { display: grid; gap: .4rem; padding: .875rem; border-left: 3px solid var(--azul); background: var(--azul-hielo); font-size: .8125rem; }
+.mockup-producto__hallazgo > span { min-height: 3.3em; }
+.mockup-producto__cursor { position: absolute; left: 0; top: 0; z-index: 2; opacity: 0; pointer-events: none; filter: drop-shadow(0 2px 3px rgb(0 43 68 / 20%)); transform-origin: 2px 2px; }
+.mockup-producto__cursor svg { display: block; }
 .mockup-producto__acciones { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.25rem; font-size: .75rem; }
 .mockup-producto__acciones span { padding: .35rem .5rem; border: var(--interior-borde); border-radius: .375rem; }
 .mockup-producto > p { padding: 1rem 1.125rem; margin: 0; border-top: var(--interior-borde); color: var(--gris-texto); font-size: .75rem; }
@@ -479,8 +483,8 @@
 }
 
 @media (max-width: 360px) {
-  .mockup-producto__cuerpo { grid-template-columns: minmax(0, 1fr); }
-  .mockup-producto__cuerpo aside { display: none; }
+  .mockup-producto__cuerpo { grid-template-columns: 5.75rem minmax(0, 1fr); }
+  .mockup-producto__cuerpo aside { font-size: .6875rem; }
   .orbita-documental { gap: .625rem; padding: 1rem; }
   .orbita-documental > span { padding-inline: .5rem; font-size: .8125rem; }
 }

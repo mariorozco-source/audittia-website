@@ -55,3 +55,7 @@ Resultados del 15 de octubre de 2026:
 - Inspección visual de Plataforma en escritorio y Seguridad en móvil, incluida su sección de controles. En esta revisión se inspeccionó también la secuencia del proceso de inicio en sus estados intermedio y completo.
 
 Los cambios están en el proyecto local; esta revisión no publica una nueva versión en GitHub Pages.
+
+## Ampliación: demostración conceptual de Plataforma · 16 de octubre de 2026
+
+Por petición del propietario, el recuadro del expediente ahora muestra un cursor simulado y cinco selecciones en secuencia. Se mantiene la navegación entre páginas sin entradas animadas: este recorrido sólo actúa sobre los elementos internos de la ilustración. Dura 4,9 segundos, no se repite durante la visita y respeta movimiento reducido y visibilidad. Las pruebas de scroll excluyen este componente de sus límites de 560 ms y lo verifican por separado mediante `scripts/check_demo.py`.
