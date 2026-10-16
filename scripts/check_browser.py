@@ -78,19 +78,85 @@ def main():
             const original = Element.prototype.animate;
             window.__motionCalls = [];
             Element.prototype.animate = function(frames, options) {
-                window.__motionCalls.push({duration: options.duration, delay: options.delay || 0});
+                window.__motionCalls.push({element: this, frames, duration: options.duration, delay: options.delay || 0});
                 return original.call(this, frames, options);
             };
         })();""")
         moving = animated.new_page()
-        moving.goto(base)
-        initial = moving.evaluate("window.__motionCalls.length")
-        assert initial > 0, "No se activó la entrada del hero."
-        moving.locator(".tarjetas-entidad").scroll_into_view_if_needed()
-        moving.wait_for_timeout(750)
-        assert moving.evaluate("window.__motionCalls.length") > initial, "No se activaron las entradas al desplazarse."
-        assert moving.evaluate("document.getAnimations().length") == 0, "Una animación continúa indefinidamente."
+        moving.on("pageerror", lambda error: console_errors.append(str(error)))
+        for width in (390, 1440):
+            moving.set_viewport_size({"width": width, "height": 844})
+            for name in pages:
+                moving.goto(base + name, wait_until="networkidle")
+                assert moving.evaluate("window.__motionCalls.length") == 0, f"Entrada animada al cargar {name}@{width}"
+                height = moving.evaluate("document.documentElement.scrollHeight")
+                for offset in range(420, height, 420):
+                    moving.evaluate("y => window.scrollTo(0, y)", offset)
+                    moving.wait_for_timeout(40)
+                moving.wait_for_timeout(1100)
+                count = moving.evaluate("window.__motionCalls.length")
+                if name not in ("privacidad.html", "404.html"):
+                    assert count > 0, f"Sin entradas de scroll en {name}@{width}"
+                assert moving.evaluate("""(() => {
+                    const calls = window.__motionCalls;
+                    return new Set(calls.map(call => call.element)).size === calls.length
+                        && calls.every(call => call.duration <= 560 && call.delay <= 480)
+                        && calls.every(call => !call.element.closest('.hero, .hero-pagina, .hero--interior'))
+                        && !calls.some(a => calls.some(b => a !== b && a.element.contains(b.element)));
+                })()"""), f"Movimiento repetitivo, anidado o excesivo en {name}@{width}"
+                assert moving.evaluate("document.getAnimations().length") == 0, "Una animación continúa indefinidamente."
+                # Subir y volver a bajar no debe reproducir ninguna entrada.
+                for offset in (0, height, 0):
+                    moving.evaluate("y => window.scrollTo(0, y)", offset)
+                    moving.wait_for_timeout(80)
+                assert moving.evaluate("window.__motionCalls.length") == count, f"Entrada repetida en {name}@{width}"
+            print(f"Navegación estable y scroll sin repeticiones: ocho páginas a {width}px.", flush=True)
+
+        # Verificar la secuencia que ve el usuario, no sólo su configuración.
+        for width in (390, 1440):
+            moving.set_viewport_size({"width": width, "height": 844})
+            moving.goto(base, wait_until="networkidle")
+            moving.locator(".flujo-resumen").evaluate("el => window.scrollTo(0, window.scrollY + el.getBoundingClientRect().top - 110)")
+            moving.wait_for_timeout(80)
+            assert moving.evaluate("window.__motionCalls.filter(call => call.element.matches('.flujo-resumen li')).length") == 3
+            moving.evaluate("""() => {
+                window.__stepAnimations = [...document.querySelectorAll('.flujo-resumen li')].map(el => el.getAnimations()[0]);
+                window.__stepAnimations.forEach(animation => animation.pause());
+            }""")
+            for elapsed, visible in ((100, [True, False, False]), (300, [True, True, False]), (700, [True, True, True])):
+                moving.evaluate("time => window.__stepAnimations.forEach(animation => animation.currentTime = time)", elapsed)
+                actual = moving.locator(".flujo-resumen li").evaluate_all("items => items.map(el => Number(getComputedStyle(el).opacity) > 0.01)")
+                assert actual == visible, f"Orden incorrecto de pasos a {elapsed}ms@{width}: {actual}"
+            moving.evaluate("window.__stepAnimations.forEach(animation => animation.finish())")
+            assert moving.locator(".flujo-resumen li").evaluate_all("items => items.every(el => getComputedStyle(el).opacity === '1')")
+            # El foco debe sacar de espera un enlace todavía fuera de pantalla.
+            moving.locator(".tarjetas-entidad a").first.evaluate("el => el.focus({preventScroll: true})")
+            assert moving.locator(".tarjetas-entidad article").first.evaluate("el => getComputedStyle(el).opacity === '1'")
+            moving.emulate_media(reduced_motion="reduce")
+            moving.wait_for_timeout(100)
+            assert moving.locator(".motion-pending").count() == 0, "Quedó contenido oculto con movimiento reducido."
+            moving.emulate_media(reduced_motion="no-preference")
+        print("Secuencia visual 1 → 2 → 3, foco y visibilidad comprobados en móvil y escritorio.", flush=True)
+
+        moving.set_viewport_size({"width": 1440, "height": 844})
+        moving.goto(base, wait_until="networkidle")
+        for route in ("plataforma.html", "seguridad.html"):
+            moving.locator(f'.navegacion a[href="{route}"]').click()
+            moving.wait_for_load_state("networkidle")
+            assert moving.evaluate("window.__motionCalls.length") == 0, f"Entrada animada desde el menú: {route}"
+        moving.goto(base + "plataforma.html#verificaciones", wait_until="networkidle")
+        assert moving.evaluate("window.__motionCalls.length") == 0, "Se animó la llegada por enlace profundo."
+        moving.locator('a[href="#contenido-principal"]').last.click()
+        moving.wait_for_timeout(100)
+        assert moving.evaluate("document.getAnimations().length") == 0, "El salto a una sección dejó animaciones activas."
+
+        moving.set_viewport_size({"width": 390, "height": 844})
+        moving.goto(base, wait_until="networkidle")
+        moving.locator(".preguntas summary").first.scroll_into_view_if_needed()
+        moving.wait_for_timeout(1100)
         moving.locator(".preguntas summary").first.click()
+        moving.wait_for_timeout(30)
+        assert moving.evaluate("document.getAnimations().length") > 0, "No se activó el fundido de respuesta."
         moving.emulate_media(reduced_motion="reduce")
         moving.wait_for_timeout(100)
         assert moving.evaluate("document.getAnimations().length") == 0, "No se canceló el movimiento."
@@ -100,7 +166,7 @@ def main():
         assert moving.evaluate("window.__motionCalls.length") == count, "Se animó contenido con movimiento reducido."
         assert moving.evaluate("getComputedStyle(document.documentElement).scrollBehavior") == "auto"
         animated.close()
-        print("Movimiento normal, cancelación y preferencia reducida comprobados.", flush=True)
+        print("Navegación superior, fragmentos, cancelación y preferencia reducida comprobados.", flush=True)
 
         if args.axe_script:
             axe_source = args.axe_script.read_text(encoding="utf-8")
