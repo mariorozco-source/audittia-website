@@ -47,11 +47,11 @@
         </div>
         <figure class="hero__visual">
           <div class="hero__foto-marco">
-            <video id="video-portada" class="hero__video" width="1280" height="720" poster="assets/medica-auditoria-poster.jpg" preload="none" muted playsinline aria-label="Video ilustrativo: acercamiento desde la Tierra hasta una médica en su consultorio.">
+            <video id="video-portada" class="hero__video" data-video-ambiental width="1280" height="720" poster="assets/medica-auditoria-poster.jpg" preload="none" muted playsinline aria-label="Video ilustrativo: acercamiento desde la Tierra hasta una médica en su consultorio.">
               <source src="assets/medica-auditoria-portada.mp4" type="video/mp4">
               Tu navegador no admite video. <a href="assets/medica-auditoria-portada.mp4">Ver el video de portada</a>.
             </video>
-            <img class="hero__video-fallback" src="assets/medica-auditoria-poster.jpg" width="1280" height="720" alt="Médica sentada en su consultorio." hidden>
+            <img class="hero__video-fallback" data-video-fallback src="assets/medica-auditoria-poster.jpg" width="1280" height="720" alt="Médica sentada en su consultorio." hidden>
           </div>
           <div class="hero__sello"><span class="icono-check" aria-hidden="true">✓</span><div><strong>La decisión sigue siendo humana</strong><span>Revisión, criterio y firma del auditor.</span></div></div>
           <figcaption>Video ilustrativo generado con IA · facilitado por AUDITTIA.</figcaption>
@@ -81,7 +81,16 @@
     </section>
     <section class="seccion seccion--editorial" id="firma-humana" aria-labelledby="titulo-humano">
       <div class="contenedor editorial-personas">
-        <figure class="foto-editorial"><img src="assets/equipo-medico-1200.webp" srcset="assets/equipo-medico-640.webp 640w, assets/equipo-medico-1200.webp 1200w" sizes="(max-width: 760px) calc(100vw - 40px), 45vw" width="1200" height="1800" loading="lazy" decoding="async" alt="Tres profesionales médicos revisando documentos y una tableta en equipo."><figcaption>Fotografía ilustrativa; no representa al equipo ni a clientes de AUDITTIA.</figcaption></figure>
+        <figure class="foto-editorial">
+          <div class="foto-editorial__media">
+            <video id="video-equipo" data-video-ambiental width="1280" height="720" poster="assets/equipo-medico-poster.jpg" preload="none" muted playsinline aria-label="Video ilustrativo de profesionales médicos conversando en equipo.">
+              <source src="assets/equipo-medico-video.mp4" type="video/mp4">
+              Tu navegador no admite video. <a href="assets/equipo-medico-video.mp4">Ver el video del equipo médico</a>.
+            </video>
+            <img data-video-fallback src="assets/equipo-medico-poster.jpg" width="1280" height="720" loading="lazy" alt="Profesionales médicos reunidos en un consultorio." hidden>
+          </div>
+          <figcaption>Video ilustrativo generado con IA; no representa al equipo ni a clientes de AUDITTIA.</figcaption>
+        </figure>
         <div><p class="etiqueta">La tecnología acompaña. El criterio permanece.</p><h2 id="titulo-humano">Más contexto para quien toma la decisión.</h2><p>La auditoría médica requiere experiencia, responsabilidad y una lectura completa del caso. AUDITTIA ayuda a organizar el trabajo sin reemplazar esa mirada profesional.</p><ul class="lista-verificada"><li>Hallazgos vinculados a su soporte.</li><li>Observaciones que se pueden revisar y corregir.</li><li>Sin informe definitivo antes de la aprobación humana.</li></ul><a class="enlace-flecha" href="nosotros.html">Conoce el origen de AUDITTIA <span aria-hidden="true">→</span></a></div>
       </div>
     </section>

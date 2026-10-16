@@ -9,7 +9,7 @@ Autor: Tima Miroshnichenko. [Licencia Pexels](https://www.pexels.com/license/), 
 | Archivo | Fuente | Uso |
 |---|---|---|
 | medica-auditoria-640/1200.webp | [Fotografía 8376198](https://www.pexels.com/photo/8376198/) | Anterior fotografía de portada; original conservado en el proyecto |
-| equipo-medico-640/1200.webp | [Doctors working Together on a Research, 5452228](https://www.pexels.com/photo/doctors-working-together-on-a-research-5452228/) | Bloque editorial de validación humana |
+| equipo-medico-640/1200.webp | [Doctors working Together on a Research, 5452228](https://www.pexels.com/photo/doctors-working-together-on-a-research-5452228/) | Anterior fotografía del bloque editorial; conservada en el proyecto |
 | colaboracion-medica-640/1200.webp | [Doctors Standing with Tablet, 5452187](https://www.pexels.com/photo/doctors-standing-with-tablet-5452187/) | Página para entidades |
 
 Derivados WebP optimizados a 640 y 1200 píxeles. Los encuadres se adaptan mediante CSS. La fotografía no es una captura del producto.
@@ -33,3 +33,9 @@ No se incorporaron sus marcas, testimonios, cifras, scripts ni estilos de tercer
 Video generado con IA y facilitado por el propietario el 16 de octubre de 2026. Original: `VIDEOS PARA WEB/Camera_zooming_to_medical_auditor_20261016082559.mp4`. La secuencia completa dura 10 segundos y se conserva sin recortes: acercamiento desde la Tierra hasta una médica en un consultorio. No representa una profesional, cliente ni sede real de AUDITTIA.
 
 Versión pública: `assets/medica-auditoria-portada.mp4`, H.264, 1280 × 720, 24 fps, sin pista de audio y con fast start. Portada: `assets/medica-auditoria-poster.jpg`, extraída a los 8,5 segundos del clip. El original no se incluye en el artefacto de publicación.
+
+## Video del equipo médico
+
+Video generado con IA facilitado por el propietario el 16 de octubre de 2026: `VIDEOS PARA WEB/Woman_explaining_medical_topics_…_20261016093615.mp4`. Sustituye la fotografía del bloque de validación humana. No representa al equipo ni a clientes de AUDITTIA.
+
+Derivado público: `assets/equipo-medico-video.mp4`, 10 segundos, H.264, 1280 × 720, sin audio y con fast start. `assets/equipo-medico-poster.jpg` procede del primer fotograma. Se conserva el original sin alteraciones, fuera del artefacto publicado.

@@ -6,9 +6,9 @@
   const canAnimate = typeof Element.prototype.animate === "function";
   const ease = "cubic-bezier(.2,.7,.2,1)";
 
-  const video = document.querySelector(".hero__video");
-  if (video && "IntersectionObserver" in window) {
-    const fallback = document.querySelector(".hero__video-fallback");
+  document.querySelectorAll("video[data-video-ambiental]").forEach((video) => {
+    if (!("IntersectionObserver" in window)) return;
+    const fallback = video.parentElement.querySelector("[data-video-fallback]");
     let visible = false;
     let failed = false;
     let restartTimer;
@@ -59,7 +59,7 @@
     window.addEventListener("pageshow", syncPlayback);
     motion.addEventListener("change", syncPlayback);
     syncPlayback();
-  }
+  });
 
   // Sólo opacity/transform: sin alterar el flujo de lectura ni ocultar contenido
   // mediante CSS. Una animación cancelada vuelve al estado visible de base.
