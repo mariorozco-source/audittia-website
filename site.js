@@ -6,6 +6,64 @@
   const canAnimate = typeof Element.prototype.animate === "function";
   const ease = "cubic-bezier(.2,.7,.2,1)";
 
+  const video = document.querySelector(".hero__video");
+  if (video && "IntersectionObserver" in window) {
+    const control = document.querySelector(".hero__video-control");
+    const fallback = document.querySelector(".hero__video-fallback");
+    let visible = false;
+    let userPaused = false;
+    let userRequested = false;
+    let failed = false;
+    const updateControl = () => {
+      control.textContent = video.ended ? "Volver a reproducir" : video.paused ? "Reproducir video" : "Pausar video";
+    };
+    const shouldPlay = () => visible && !document.hidden && !userPaused && !video.ended && !failed && (!motion.matches || userRequested);
+    const syncPlayback = () => {
+      if (shouldPlay()) {
+        video.play().then(() => {
+          // La pestaña o la preferencia pueden cambiar mientras carga el MP4.
+          if (!shouldPlay()) video.pause();
+        }).catch(updateControl);
+      } else video.pause();
+    };
+    const videoObserver = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting && entry.intersectionRatio >= 0.2;
+      syncPlayback();
+    }, { threshold: [0, 0.2] });
+    videoObserver.observe(video);
+    control.hidden = false;
+    video.controls = false;
+    control.addEventListener("click", () => {
+      if (!video.paused) {
+        userPaused = true;
+        video.pause();
+      } else {
+        userPaused = false;
+        userRequested = true;
+        if (video.ended) video.currentTime = 0;
+        syncPlayback();
+      }
+    });
+    ["play", "pause", "ended"].forEach((event) => video.addEventListener(event, updateControl));
+    const showFallback = () => {
+      failed = true;
+      video.pause();
+      video.hidden = true;
+      control.hidden = true;
+      fallback.hidden = false;
+      videoObserver.disconnect();
+    };
+    video.addEventListener("error", showFallback);
+    video.querySelector("source").addEventListener("error", showFallback);
+    document.addEventListener("visibilitychange", syncPlayback);
+    window.addEventListener("pagehide", () => video.pause());
+    window.addEventListener("pageshow", syncPlayback);
+    motion.addEventListener("change", () => {
+      userRequested = false;
+      syncPlayback();
+    });
+  }
+
   // Sólo opacity/transform: sin alterar el flujo de lectura ni ocultar contenido
   // mediante CSS. Una animación cancelada vuelve al estado visible de base.
   const reveal = (element, { duration = 480, distance = 18, delay = 0, opacity = 0 } = {}) => {

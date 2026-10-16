@@ -46,9 +46,16 @@
           <p class="hero__nota">Para EPS, firmas auditoras e IPS en Colombia.</p>
         </div>
         <figure class="hero__visual">
-          <div class="hero__foto-marco"><img src="assets/medica-auditoria-1200.webp" srcset="assets/medica-auditoria-640.webp 640w, assets/medica-auditoria-1200.webp 1200w" sizes="(max-width: 760px) calc(100vw - 40px), 48vw" width="1200" height="800" fetchpriority="high" decoding="async" alt="Médica sonriente frente a su computador portátil."></div>
+          <div class="hero__foto-marco">
+            <video id="video-portada" class="hero__video" width="1280" height="720" poster="assets/medica-auditoria-poster.jpg" preload="none" muted playsinline controls aria-label="Video ilustrativo: acercamiento desde la Tierra hasta una médica en su consultorio.">
+              <source src="assets/medica-auditoria-portada.mp4" type="video/mp4">
+              Tu navegador no admite video. <a href="assets/medica-auditoria-portada.mp4">Ver el video de portada</a>.
+            </video>
+            <img class="hero__video-fallback" src="assets/medica-auditoria-poster.jpg" width="1280" height="720" alt="Médica sentada en su consultorio." hidden>
+            <button class="hero__video-control" type="button" aria-controls="video-portada" hidden>Reproducir video</button>
+          </div>
           <div class="hero__sello"><span class="icono-check" aria-hidden="true">✓</span><div><strong>La decisión sigue siendo humana</strong><span>Revisión, criterio y firma del auditor.</span></div></div>
-          <figcaption>Imagen ilustrativa · Tima Miroshnichenko / Pexels</figcaption>
+          <figcaption>Video ilustrativo generado con IA · facilitado por AUDITTIA.</figcaption>
         </figure>
       </div>
       <div class="hero__base"><div class="contenedor"><p><span aria-hidden="true">✓</span> Evidencia relacionada</p><p><span aria-hidden="true">✓</span> Verificaciones trazables</p><p><span aria-hidden="true">✓</span> Validación humana</p></div></div>
