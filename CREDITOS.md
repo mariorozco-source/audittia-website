@@ -39,3 +39,9 @@ Versión pública: `assets/medica-auditoria-portada.mp4`, H.264, 1280 × 720, 24
 Video generado con IA facilitado por el propietario el 16 de octubre de 2026: `VIDEOS PARA WEB/Woman_explaining_medical_topics_…_20261016093615.mp4`. Sustituye la fotografía del bloque de validación humana. No representa al equipo ni a clientes de AUDITTIA.
 
 Derivado público: `assets/equipo-medico-video.mp4`, 10 segundos, H.264, 1280 × 720, sin audio y con fast start. `assets/equipo-medico-poster.jpg` procede del primer fotograma. Se conserva el original sin alteraciones, fuera del artefacto publicado.
+
+## Video para entidades
+
+Video facilitado por el propietario el 17 de octubre de 2026: `VIDEOS PARA WEB/Doctor_writing_and_typing_1080p_20261017114004.mp4`. Sustituye la fotografía de la cabecera de Para entidades y muestra a un profesional médico escribiendo y trabajando en un portátil. Es material ilustrativo.
+
+Derivado público: `assets/auditor-escribiendo-video.mp4`, 10 segundos, H.264, 1280 × 720, sin audio y con fast start. `assets/auditor-escribiendo-poster.jpg` procede del segundo 1. El original se conserva fuera del artefacto publicado.

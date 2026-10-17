@@ -64,7 +64,9 @@
 .migas--claro,
 .migas--claro a { color: var(--blanco); }
 .hero-pagina__media { margin: 0; }
-.hero-pagina__media img {
+.hero-pagina__media img,
+.hero-pagina__media video {
+  display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 1.2;
@@ -72,6 +74,7 @@
   object-position: center;
   border-radius: var(--interior-radio);
 }
+.hero-pagina__media [hidden] { display: none; }
 .hero-pagina__media figcaption {
   display: grid;
   gap: .25rem;
@@ -455,7 +458,7 @@
   .mockup-producto,
   .escena-marca,
   .escudo-datos { width: 100%; max-width: 520px; margin-inline: auto; }
-  .hero-pagina__media img { aspect-ratio: 1.35; }
+  .hero-pagina__media :is(img, video) { aspect-ratio: 1.35; }
   .hero-pagina__resumen { max-width: 62ch; }
   .mockup-producto__cuerpo { grid-template-columns: 6.5rem minmax(0, 1fr); }
   .mockup-producto__panel { padding: 1.25rem .875rem; }
