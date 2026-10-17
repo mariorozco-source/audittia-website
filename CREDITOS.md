@@ -45,3 +45,9 @@ Derivado público: `assets/equipo-medico-video.mp4`, 10 segundos, H.264, 1280 ×
 Video facilitado por el propietario el 17 de octubre de 2026: `VIDEOS PARA WEB/Doctor_writing_and_typing_1080p_20261017114004.mp4`. Sustituye la fotografía de la cabecera de Para entidades y muestra a un profesional médico escribiendo y trabajando en un portátil. Es material ilustrativo.
 
 Derivado público: `assets/auditor-escribiendo-video.mp4`, 10 segundos, H.264, 1280 × 720, sin audio y con fast start. `assets/auditor-escribiendo-poster.jpg` procede del segundo 1. El original se conserva fuera del artefacto publicado.
+
+## Video de Seguridad
+
+Video facilitado por el propietario el 17 de octubre de 2026: `VIDEOS PARA WEB/Glowing_padlock_pulses_data_streams_20261017114801.mp4`. Se muestra junto al criterio de protección de datos, debajo de la cabecera de Seguridad. Es una ilustración conceptual, no una captura de los controles de AUDITTIA.
+
+Derivado público: `assets/seguridad-datos-salud.mp4`, 10 segundos, H.264, 1280 × 720, sin audio y con fast start. La portada `assets/seguridad-datos-salud.jpg` procede del segundo 1. El original se conserva fuera del artefacto publicado.

@@ -92,6 +92,22 @@
 .franja-mision--oscura { background: var(--azul-noche); }
 .franja-mision--oscura h2 { color: var(--blanco); }
 .franja-mision--oscura .etiqueta { color: var(--verde-lima); }
+.franja-mision--seguridad .franja-mision__interior {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  max-width: none;
+  text-align: left;
+}
+.franja-mision--seguridad .etiqueta { justify-content: flex-start; }
+.franja-mision--seguridad .franja-mision__media :is(img, video) {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--interior-radio);
+}
+.franja-mision--seguridad .franja-mision__media [hidden] { display: none; }
 
 /* Demostración conceptual: legible y sin controles interactivos simulados. */
 .mockup-producto {
@@ -437,6 +453,7 @@
 }
 
 @media (max-width: 760px) {
+  .franja-mision--seguridad .franja-mision__interior { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
   .hero-pagina,
   .hero--interior { padding-block: 2.5rem 3rem; }
   .hero-pagina__interior,
