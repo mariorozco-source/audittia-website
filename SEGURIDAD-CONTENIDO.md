@@ -40,7 +40,8 @@ Fuente: `AUDITIA REPO/auditoria-cuentas-saas`, rama `mario/fase-3-limpia` (acces
 | Respaldos cifrados con simulacro de restauración | `ops/respaldo.sh` (AES-256), `ops/restaurar.sh`, simulacro en `ops/ensayo-local.sh` | Probado en local; en producción, bucket con vida de 30 días (plan E1). |
 | Borrado a 30 días (cuenta aprobada) y 90 (Word), constancia sin datos del paciente | `operador.ts purgar` (valores por defecto) | Plazos por defecto; se acuerdan con cada entidad. |
 | Alojamiento en Oracle Cloud Bogotá, en preparación | Plan de la Fase 3, §8.3; `ops/Caddyfile` (`piloto.` y `demo.`) | Espera la constitución de la empresa y la cuenta de Oracle. El sitio lo dice como «en preparación». |
-| Demo: 7 días, cuentas inventadas, copia por invitado, Word «DEMOSTRACIÓN — NO RADICABLE», sin carga ni IA | `src/trabajador/demo.ts`, `AUDITIA_MODO=demo`; doc. 45 al auditor | Por invitación; se solicita por correo desde el sitio. |
+| Tutorial: cuentas inventadas, sin vencimiento, copia por usuario, guía `/tutorial`, Word «DEMOSTRACIÓN — NO RADICABLE», sin carga ni IA | `src/trabajador/demo.ts` (sin `--dias` no vence), `src/app/tutorial/page.tsx`, `AUDITIA_MODO=demo` | Se pide por correo desde el sitio. |
+| Factura gratis con acuerdo de tratamiento de datos | Decisión de Mario (31/10) | Sin fecha: requiere la SAS constituida y el servidor en Bogotá. Nunca por correo. |
 | Transferencia a EE. UU. con nivel adecuado | Circular Externa 005 de 2017 de la SIC, numeral 3.2 | No sustituye la autorización del titular ni el contrato de encargo. |
 | Servicio compartido o dedicado | Decisión de modelo del 02/10/2026 (plan de la plataforma) | Sin precios publicados. |
 

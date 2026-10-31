@@ -26,7 +26,7 @@ Abre http://127.0.0.1:8000/ (sin punto después de index.html). Si aparece un li
 - site.js: mejora progresiva; sin cookies, almacenamiento local, telemetría ni dependencias.
 - assets/: marca, imágenes optimizadas, tipografía local y licencias.
 
-El correo confirmado es **carlosromero@audittia.com**. El botón **Probar demo** del encabezado (y los CTA de demo) abre un correo con asunto «Solicitud de demo de AUDITTIA» y campos sugeridos; no hay formulario. El enlace **Ingresar** a la plataforma está comentado en el encabezado de las ocho páginas (`https://piloto.audittia.com`): se activa quitando el comentario cuando exista el servidor y su registro DNS. Los enlaces abren la aplicación de correo del visitante; no envían nada automáticamente. No solicitar ni recibir historias clínicas por el canal inicial.
+El correo confirmado es **carlosromero@audittia.com**. El botón **Factura gratis** del encabezado (y los CTA principales) abre un correo con asunto «Solicitud de factura gratis — AUDITTIA» y campos sugeridos; la factura se recibe solo con un acuerdo de tratamiento de datos firmado. El tutorial (cuentas inventadas, sin vencimiento) se pide con el asunto «Acceso al tutorial de AUDITTIA». No hay formulario. El enlace **Ingresar** a la plataforma está comentado en el encabezado de las ocho páginas (`https://piloto.audittia.com`): se activa quitando el comentario cuando exista el servidor y su registro DNS. Los enlaces abren la aplicación de correo del visitante; no envían nada automáticamente. No solicitar ni recibir historias clínicas por el canal inicial.
 
 ## Verificar cambios
 
