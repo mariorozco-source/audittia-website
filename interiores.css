@@ -531,10 +531,11 @@
 .familia-portada__nombres { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin-block: 1.5rem; font-size: clamp(1.65rem, 3.2vw, 3rem); font-weight: 600; letter-spacing: -.05em; line-height: 1.1; }
 .familia-portada__nombres b { color: var(--verde-lima); font-weight: 400; }
 .familia-portada__reserva p { color: var(--azul-cielo); font-size: .9375rem; }
+.familia-portada__foto { object-position: center 15%; }
 .familia-portada figcaption { padding-inline: .25rem; }
 .nosotros-origen { align-items: start; }
 .nosotros-origen .bloque-editorial__texto p { font-size: 1rem; }
-.fundador-identidad { display: grid; grid-template-columns: 120px minmax(0, 1fr); align-items: center; gap: 1.5rem; margin-bottom: 1.75rem; }
+.fundador-identidad { display: grid; grid-template-columns: 160px minmax(0, 1fr); align-items: center; gap: 1.5rem; margin-bottom: 1.75rem; }
 .fundador-retrato { display: grid; place-items: center; width: 100%; aspect-ratio: 4 / 5; border-radius: .75rem; overflow: hidden; }
 .fundador-retrato--carlos { background: var(--azul-cielo); color: var(--azul-profundo); }
 .fundador-retrato--mario { background: var(--menta); color: var(--azul-petroleo); }

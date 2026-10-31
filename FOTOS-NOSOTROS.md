@@ -1,5 +1,11 @@
 # Fotografías para Nosotros
 
+## Estado actual · 31 de octubre de 2026
+
+Las tres fotografías ya están incorporadas: foto conjunta en la cabecera y retratos individuales en los perfiles. Las versiones web están en `assets/carlos-mario-1200.webp`, `assets/carlos-mario-640.webp`, `assets/carlos-retrato.webp` y `assets/mario-retrato.webp`. Los originales se conservan en `Fotos web propias/`.
+
+La guía siguiente se conserva como referencia para futuras sesiones. Los espacios tipográficos y las iniciales descritos ya fueron sustituidos por las fotografías.
+
 ## Recomendación
 
 Una fotografía conjunta para la cabecera y un retrato individual de cada uno. Si solo se puede hacer una toma, priorizar la conjunta: transmite el vínculo padre-hijo que da origen a AUDITTIA.

@@ -51,3 +51,13 @@ Derivado público: `assets/auditor-escribiendo-video.mp4`, 10 segundos, H.264, 1
 Video facilitado por el propietario el 17 de octubre de 2026: `VIDEOS PARA WEB/Glowing_padlock_pulses_data_streams_20261017114801.mp4`. Se muestra junto al criterio de protección de datos, debajo de la cabecera de Seguridad. Es una ilustración conceptual, no una captura de los controles de AUDITTIA.
 
 Derivado público: `assets/seguridad-datos-salud.mp4`, 10 segundos, H.264, 1280 × 720, sin audio y con fast start. La portada `assets/seguridad-datos-salud.jpg` procede del segundo 1. El original se conserva fuera del artefacto publicado.
+
+## Fotografías de Carlos y Mario
+
+Fotografías facilitadas por el propietario e incorporadas el 31 de octubre de 2026 en Nosotros. Originales conservados en `Fotos web propias/`:
+
+- Carlos: `ZVE00031-retrato-darktable-alta.jpg` → `assets/carlos-retrato.webp`.
+- Carlos y Mario juntos: `ZVE00021-darktable-color-web-v3.jpg` → `assets/carlos-mario-1200.webp` y `assets/carlos-mario-640.webp`.
+- Mario: `ChatGPT Image Oct 27, 2026, 08_58_41 AM.png` → `assets/mario-retrato.webp`.
+
+Las copias públicas se redimensionan y comprimen en WebP. El encuadre de la cabecera se ajusta mediante CSS. Los archivos originales no forman parte del artefacto publicado.
