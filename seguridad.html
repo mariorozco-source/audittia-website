@@ -22,7 +22,7 @@
   <link rel="preload" href="assets/fonts/work-sans-600.woff2" as="font" type="font/woff2" crossorigin>
   <title>Seguridad y datos | AUDITTIA</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="interiores.css">
+  <link rel="stylesheet" href="interiores.css?v=38b7fb4cb578">
   <script src="site.js" defer></script>
 </head>
 <body class="pagina-seguridad">
@@ -44,20 +44,31 @@
         <div>
           <nav class="migas migas--claro" aria-label="Migas de pan"><a href="index.html">Inicio</a><span aria-hidden="true">/</span><span>Seguridad</span></nav>
           <p class="etiqueta etiqueta--hero">Seguridad y protección de datos</p>
-          <h1 id="titulo-seguridad">Menos exposición. Más control.</h1>
+          <h1 id="titulo-seguridad">La privacidad forma parte de cada auditoría.</h1>
           <p class="hero-pagina__resumen">Sustituimos identificadores, limitamos lo que recibe la IA y detenemos el envío si detectamos datos personales reconocibles. La decisión final sigue en manos del auditor.</p>
           <div class="grupo-botones"><a class="boton boton--blanco" href="#controles">Ver los controles <span aria-hidden="true">↓</span></a><a class="boton boton--contorno-claro" href="#diferenciales">Resolver dudas</a></div>
         </div>
-        <figure class="seguridad-portada">
-          <div class="seguridad-portada__media">
-            <video data-video-ambiental width="1280" height="720" poster="assets/seguridad-datos-salud.jpg" preload="none" muted playsinline aria-label="Video ilustrativo de protección de datos de salud.">
-              <source src="assets/seguridad-datos-salud.mp4" type="video/mp4">
-              Tu navegador no admite video. <a href="assets/seguridad-datos-salud.mp4">Ver el video</a>.
-            </video>
-            <img data-video-fallback src="assets/seguridad-datos-salud.jpg" width="1280" height="720" alt="Candado digital que ilustra la protección de datos de salud." hidden>
-          </div>
-          <figcaption>Detrás de cada expediente hay una persona.</figcaption>
+        <figure class="proteccion-ejemplo">
+          <p class="proteccion-ejemplo__etiqueta">Antes de una consulta a la IA</p>
+          <div class="proteccion-ejemplo__paso"><span>01 / En el entorno de auditoría</span><p>Nombre, documento y datos de contacto</p></div>
+          <p class="proteccion-ejemplo__filtro"><span aria-hidden="true">↓</span> Sustitución + revisión de identificadores</p>
+          <div class="proteccion-ejemplo__paso proteccion-ejemplo__paso--protegido"><span>02 / Texto preparado</span><p>Paciente <code>[[PAC_1]]</code><br>Documento <code>[[DOC_1]]</code></p></div>
+          <p class="proteccion-ejemplo__bloqueo">Si la revisión detecta un identificador, el envío se detiene.</p>
+          <figcaption>Ejemplo ilustrativo, sin datos reales. El contenido clínico necesario conserva su carácter sensible.</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <section class="franja-mision franja-mision--oscura franja-mision--seguridad" aria-labelledby="titulo-regla-datos">
+      <div class="contenedor franja-mision__interior">
+        <div><p class="etiqueta">Nuestro criterio</p><h2 id="titulo-regla-datos">Cada dato que evitamos exponer es una protección más para el paciente y para tu entidad.</h2></div>
+        <div class="franja-mision__media">
+          <video data-video-ambiental width="1280" height="720" poster="assets/seguridad-datos-salud.jpg" preload="none" muted playsinline aria-label="Video ilustrativo de un candado digital que protege datos de salud.">
+            <source src="assets/seguridad-datos-salud.mp4" type="video/mp4">
+            Tu navegador no admite video. <a href="assets/seguridad-datos-salud.mp4">Ver el video</a>.
+          </video>
+          <img data-video-fallback src="assets/seguridad-datos-salud.jpg" width="1280" height="720" alt="Candado digital y símbolos de salud que ilustran la protección de datos." hidden>
+        </div>
       </div>
     </section>
 

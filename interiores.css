@@ -560,8 +560,4 @@
 }
 
 /* Seguridad: lectura breve y detalle bajo demanda. */
-.seguridad-portada { min-width: 0; }
-.seguridad-portada__media :is(video, img) { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: var(--interior-radio); }
-.seguridad-portada__media [hidden] { display: none; }
-.seguridad-portada figcaption { color: var(--azul-cielo); }
 .seguridad-nota { margin-top: 2rem; padding: 1rem 1.25rem; border-left: 3px solid var(--verde-lima); background: var(--azul-hielo); color: var(--gris-texto); font-size: .875rem; }
