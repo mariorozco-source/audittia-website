@@ -1,6 +1,6 @@
 # Evidencia del contenido de Seguridad
 
-Revisión: 15 de octubre de 2026 (Colombia). Este documento es de mantenimiento y no se incluye en el artefacto público.
+Revisión: 15 de octubre de 2026 (Colombia); ampliada el 31 de octubre de 2026 con la plataforma (ver «Plataforma, acceso y demo»). Este documento es de mantenimiento y no se incluye en el artefacto público.
 
 Fuente local: proyecto hermano `AUDITIA REPO/auditoria-cuentas-saas`, rama `mario/fase-3`, commit base `524ce0a`. Se inspeccionaron código, pruebas y documentación, sin abrir expedientes reales, credenciales ni grabaciones. Las pruebas se ejecutaron sobre el árbol local de trabajo; al cierre había cambios concurrentes en el cliente de IA y sus pruebas, ajenos a esta actualización del sitio. Esta tarea no modificó el motor. Esta revisión de contenido no demuestra un despliegue de la plataforma ni constituye un pentest.
 
@@ -24,13 +24,33 @@ Las rutas siguientes son relativas al repositorio del motor.
 | Retención y uso para entrenamiento del proveedor | [Documentación oficial de Anthropic](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention), consultada el 15/10/2026 | ZDR depende de organización, workspace, modelo y funciones elegibles; existen excepciones por seguridad y obligaciones legales. El proveedor declara que no entrena con datos retenidos sin permiso expreso. No se presenta ZDR como una certificación. |
 | Sitio sin seguimiento ni carga de expedientes | HTML, `site.js`, CSP y `privacidad.html` de este repositorio | Sin formularios de carga, cookies de seguimiento ni analítica incorporada. El alojamiento y el correo tienen condiciones propias. |
 
+## Plataforma, acceso y demo (31/10/2026)
+
+Fuente: `AUDITIA REPO/auditoria-cuentas-saas`, rama `mario/fase-3-limpia` (acceso sin código del celular desde el commit `3940267`). Probado en local con cuentas inventadas y en el ensayo de producción en contenedores (`ops/ensayo-local.sh`); **no hay servidor de producción todavía** y ningún subdominio existe (DNS consultado el 31/10).
+
+| Contenido público | Evidencia inspeccionada | Alcance |
+| --- | --- | --- |
+| Sin registro abierto; AUDITTIA da de alta y entrega la clave una vez | `src/trabajador/operador.ts` (`usuario`, `demo-alta`) | Alta por el operador. No hay pantalla de autorregistro. |
+| Sesión de 30 min sin actividad y 12 h máximo | `src/web/sesion.ts` (`INACTIVIDAD_MIN`, `MAXIMO_H`) | Cookie de sesión del servidor. |
+| Bloqueo tras intentos fallidos | `src/app/entrar/acciones.ts` (5 intentos, 15 minutos) | El mensaje de error no revela si el correo existe. |
+| Aprobación firmada con la clave; decisiones con autor y fecha | `src/trabajador/cuentas.ts` (`aprobar`), tabla `decisiones` (`usuario_id`, `creada`) y `bitacora` en `db/migraciones/001-esquema.sql` | La firma es la reescritura de la clave, no una firma digital certificada. |
+| Cada entidad ve solo lo suyo; una cuenta ajena responde como inexistente | `src/web/dal.ts`, prueba de 404 cruzado en la revisión D9 | Probado en local y en el ensayo; se repite en producción (etapa E3). |
+| Solo HTTPS; base sin acceso desde internet; web con permisos mínimos | `ops/Caddyfile`, `ops/compose.prod.yml`, rol `auditia_web` en la 001; el ensayo comprueba que solo Caddy publica un puerto | Configuración de contenedores; la red de Oracle (solo 443) llega con la E1. |
+| El instructivo y las llaves no llegan al navegador | `herramientas/guardia-bundle.ts` (corre en `npm run build`) | Guardia sobre el paquete web. |
+| Respaldos cifrados con simulacro de restauración | `ops/respaldo.sh` (AES-256), `ops/restaurar.sh`, simulacro en `ops/ensayo-local.sh` | Probado en local; en producción, bucket con vida de 30 días (plan E1). |
+| Borrado a 30 días (cuenta aprobada) y 90 (Word), constancia sin datos del paciente | `operador.ts purgar` (valores por defecto) | Plazos por defecto; se acuerdan con cada entidad. |
+| Alojamiento en Oracle Cloud Bogotá, en preparación | Plan de la Fase 3, §8.3; `ops/Caddyfile` (`piloto.` y `demo.`) | Espera la constitución de la empresa y la cuenta de Oracle. El sitio lo dice como «en preparación». |
+| Demo: 7 días, cuentas inventadas, copia por invitado, Word «DEMOSTRACIÓN — NO RADICABLE», sin carga ni IA | `src/trabajador/demo.ts`, `AUDITIA_MODO=demo`; doc. 45 al auditor | Por invitación; se solicita por correo desde el sitio. |
+| Transferencia a EE. UU. con nivel adecuado | Circular Externa 005 de 2017 de la SIC, numeral 3.2 | No sustituye la autorización del titular ni el contrato de encargo. |
+| Servicio compartido o dedicado | Decisión de modelo del 02/10/2026 (plan de la plataforma) | Sin precios publicados. |
+
 ## Límites que conserva la página
 
 - El contenido describe avances del motor a octubre de 2026, sin convertirlos en garantías de una plataforma multiusuario desplegada.
 - No se atribuyen negligencia, venta de datos ni malas prácticas a competidores. La comparación presenta criterios verificables y la respuesta de AUDITTIA.
 - La seudonimización conserva fechas, diagnósticos y valores. Los extractos siguen siendo sensibles y pueden tener riesgo de reidentificación por contexto.
 - El entorno local de desarrollo conserva respuestas para repetir pruebas. El cliente de servidor no graba. No se promete retención cero de los documentos de AUDITTIA.
-- El aislamiento entre entidades, los roles, el cifrado de infraestructura, las copias, la eliminación y los plazos requieren validación y acuerdos propios.
+- El aislamiento entre entidades, los roles, las copias y la eliminación están construidos y probados en local; se validan de nuevo en producción. Los plazos se acuerdan con cada entidad. El cifrado de volúmenes en Oracle llega con la E1.
 - La confirmación escrita ZDR, la finalidad y las instrucciones de tratamiento deben documentarse antes de la puesta en marcha con cada entidad.
 - No se anuncian certificaciones ISO, SOC, HIPAA, cumplimiento normativo acreditado ni seguridad absoluta.
 
