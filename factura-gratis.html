@@ -21,11 +21,13 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="assets/fonts/work-sans-600.woff2" as="font" type="font/woff2" crossorigin>
   <title>Una factura gratis | AUDITTIA</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="interiores.css">
-  <script src="site.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=3fede532e358">
+  <link rel="stylesheet" href="interiores.css?v=38b7fb4cb578">
+  <link rel="stylesheet" href="factura-gratis.css?v=82b71cadd0a2">
+  <script src="site.js?v=e6fc693f5182" defer></script>
+  <script src="factura-gratis.js?v=1c3f39f848ad" defer></script>
 </head>
-<body>
+<body class="pagina-prueba">
   <!-- Accesibilidad -->
   <a class="saltar-contenido" href="#contenido-principal">Saltar al contenido principal</a>
 
@@ -34,36 +36,96 @@
     <div class="contenedor encabezado__interior">
       <a class="marca" href="index.html" aria-label="AUDITTIA, página de inicio"><img src="assets/audittia-logo.png" width="412" height="123" alt="AUDITTIA, asistente de IA para auditoría médica"></a>
       <nav class="navegacion" aria-label="Navegación principal"><ul class="navegacion__lista"><li><a href="plataforma.html">Plataforma</a></li><li><a href="para-entidades.html">Para entidades</a></li><li><a href="seguridad.html">Seguridad</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="recursos.html">Recursos</a></li></ul></nav>
-      <details class="menu-movil"><summary>Menú</summary><nav aria-label="Navegación móvil"><a href="plataforma.html">Plataforma</a><a href="para-entidades.html">Para entidades</a><a href="seguridad.html">Seguridad</a><a href="nosotros.html">Nosotros</a><a href="recursos.html">Recursos</a><a href="factura-gratis.html">Prueba gratis</a><a href="mailto:carlosromero@audittia.com">Contacto</a></nav></details>
+      <details class="menu-movil"><summary>Menú</summary><nav aria-label="Navegación móvil"><a href="plataforma.html">Plataforma</a><a href="para-entidades.html">Para entidades</a><a href="seguridad.html">Seguridad</a><a href="nosotros.html">Nosotros</a><a href="recursos.html">Recursos</a><a href="factura-gratis.html" aria-current="page">Prueba gratis</a><a href="mailto:carlosromero@audittia.com">Contacto</a></nav></details>
       <!-- Activar cuando exista el servidor: <a class="boton boton--compacto" href="https://piloto.audittia.com">Ingresar</a> -->
-      <a class="boton boton--compacto" href="factura-gratis.html">Prueba gratis <span aria-hidden="true">↗</span></a>
+      <a class="boton boton--compacto" href="factura-gratis.html" aria-current="page">Prueba gratis <span aria-hidden="true">↗</span></a>
     </div>
   </header>
 
   <main id="contenido-principal" tabindex="-1">
-    <section class="hero hero--interior" aria-labelledby="titulo-factura">
-      <div class="contenedor contenido-angosto">
-        <nav class="migas migas--claro" aria-label="Migas de pan"><a href="index.html">Inicio</a><span aria-hidden="true">/</span><span>Factura gratis</span></nav>
-        <p class="etiqueta etiqueta--hero">Prueba gratuita</p>
-        <h1 id="titulo-factura">Te regalamos la auditoría de una factura</h1>
-        <p class="hero-pagina__resumen">AUDITTIA analiza sin costo una factura real de tu entidad, completa: con sus soportes, anexos y contrato. Recibes el informe para compararlo con la auditoría de tu equipo, sin compromiso de compra.</p>
+    <section class="hero-pagina prueba-hero" aria-labelledby="titulo-factura">
+      <div class="contenedor prueba-hero__rejilla">
+        <div class="prueba-hero__texto">
+          <nav class="migas" aria-label="Migas de pan"><a href="index.html">Inicio</a><span aria-hidden="true">/</span><span>Prueba gratis</span></nav>
+          <p class="etiqueta">Una factura real. Una prueba gratuita.</p>
+          <h1 id="titulo-factura">Conoce AUDITTIA con una factura <span>de tu entidad.</span></h1>
+          <p class="prueba-hero__resumen">Auditamos una cuenta completa, sin costo. Recibe un informe revisado por un auditor médico y compáralo con el trabajo de tu equipo.</p>
+          <div class="grupo-botones"><a class="boton" href="#solicitar">Quiero mi prueba gratis <span aria-hidden="true">↗</span></a><a class="enlace-flecha" href="#titulo-prueba">Así funciona <span aria-hidden="true">↓</span></a></div>
+          <p class="prueba-hero__nota">Una factura por entidad · Sin compromiso de compra</p>
+        </div>
+        <figure class="prueba-visual">
+          <div class="prueba-visual__marco">
+            <video data-video-ambiental width="1280" height="720" poster="assets/auditor-escribiendo-poster.jpg" preload="none" muted playsinline aria-label="Video ilustrativo de un profesional médico revisando documentos junto a un portátil.">
+              <source src="assets/auditor-escribiendo-video.mp4" type="video/mp4">
+              Tu navegador no admite video. <a href="assets/auditor-escribiendo-video.mp4">Ver el video</a>.
+            </video>
+            <img data-video-fallback src="assets/auditor-escribiendo-poster.jpg" width="1280" height="720" alt="Profesional médico revisando documentos junto a un portátil." hidden>
+          </div>
+          <div class="prueba-visual__sello"><strong>1</strong><div><span>Factura de tu entidad</span><b>La auditoría va por nuestra cuenta.</b></div></div>
+          <figcaption>Imágenes ilustrativas del trabajo de revisión.</figcaption>
+        </figure>
+      </div>
+      <div class="contenedor prueba-confianza" aria-label="Qué incluye tu prueba"><p><span aria-hidden="true">01</span> Tu expediente completo</p><p><span aria-hidden="true">02</span> Revisión médica</p><p><span aria-hidden="true">03</span> Informe en Word</p></div>
+    </section>
+
+    <section class="seccion prueba-proceso" aria-labelledby="titulo-prueba">
+      <div class="contenedor">
+        <div class="encabezado-horizontal"><div><p class="etiqueta">De la solicitud al resultado</p><h2 id="titulo-prueba">Un primer paso.<br>Cuatro momentos claros.</h2></div><p>Te acompañamos desde el primer contacto hasta la entrega del informe.</p></div>
+        <ol class="prueba-ruta">
+          <li data-prueba-entrada><span class="prueba-ruta__numero">01</span><h3>Cuéntanos de tu entidad</h3><p>Solicita la prueba por correo con tu nombre, cargo y entidad.</p><a href="#solicitar">Comenzar <span aria-hidden="true">↗</span></a></li>
+          <li data-prueba-entrada><span class="prueba-ruta__numero">02</span><h3>Firmamos el acuerdo</h3><p>Definimos el tratamiento de datos y la confidencialidad antes de recibir documentos.</p></li>
+          <li data-prueba-entrada><span class="prueba-ruta__numero">03</span><h3>Comparte el expediente</h3><p>Entrega la factura, sus soportes y el contrato por el canal seguro acordado.</p></li>
+          <li data-prueba-entrada><span class="prueba-ruta__numero">04</span><h3>Recibe y compara</h3><p>Recibe el informe en Word, revisado por un auditor médico, para contrastarlo con tu equipo.</p></li>
+        </ol>
       </div>
     </section>
 
-    <section class="seccion" aria-labelledby="titulo-prueba">
-      <div class="contenedor contenido-angosto politica">
-        <h2 id="titulo-prueba">Cómo funciona la prueba</h2>
+    <section class="seccion prueba-resultado" aria-labelledby="titulo-resultado">
+      <div class="contenedor prueba-explorador">
+        <div class="prueba-resultado__texto">
+          <p class="etiqueta">Lo que te llevas</p>
+          <h2 id="titulo-resultado">Un informe para revisar.<br>Y para comparar.</h2>
+          <p>Cada glosa reúne su concepto, carácter, valor y evidencia. Ninguna se entrega sin revisión médica.</p>
+          <div class="prueba-selector" role="group" aria-label="Explorar los campos del informe" hidden>
+            <p class="prueba-selector__ayuda">Selecciona un campo para explorarlo</p>
+            <button type="button" data-campo="concepto" aria-pressed="true" aria-controls="campo-concepto"><span>01</span> Concepto y código <b aria-hidden="true">↗</b></button>
+            <button type="button" data-campo="caracter" aria-pressed="false" aria-controls="campo-caracter"><span>02</span> Carácter de la glosa <b aria-hidden="true">↗</b></button>
+            <button type="button" data-campo="valor" aria-pressed="false" aria-controls="campo-valor"><span>03</span> Valor identificado <b aria-hidden="true">↗</b></button>
+            <button type="button" data-campo="soporte" aria-pressed="false" aria-controls="campo-soporte"><span>04</span> Cita del soporte <b aria-hidden="true">↗</b></button>
+          </div>
+          <div class="prueba-respaldo"><img src="assets/carlos-retrato.webp" width="480" height="600" alt="Carlos, auditor médico de AUDITTIA." loading="lazy" decoding="async"><p><strong>El criterio médico sigue presente</strong><span>Más de 25 años de experiencia en auditoría médica.</span></p></div>
+        </div>
+        <figure class="prueba-informe" data-prueba-entrada>
+          <div class="prueba-papel">
+            <div class="prueba-papel__cabecera"><span>AUDITT<span class="prueba-papel__ia">IA</span></span><span class="prueba-formato">WORD</span></div>
+            <p class="prueba-papel__kicker">Informe de auditoría</p><h3>Del hallazgo a su evidencia.</h3>
+            <div class="prueba-campo" id="campo-concepto" data-informe-campo="concepto"><span>01</span><div><h4>Concepto y código</h4><p>Qué se objeta y cómo se identifica la glosa.</p></div></div>
+            <div class="prueba-campo" id="campo-caracter" data-informe-campo="caracter"><span>02</span><div><h4>Carácter</h4><p>Definitiva, condicional u observación.</p></div></div>
+            <div class="prueba-campo" id="campo-valor" data-informe-campo="valor"><span>03</span><div><h4>Valor</h4><p>El valor asociado a cada glosa.</p></div></div>
+            <div class="prueba-campo" id="campo-soporte" data-informe-campo="soporte"><span>04</span><div><h4>Evidencia</h4><p>La cita del soporte que sustenta la revisión.</p></div></div>
+            <p class="prueba-papel__nota" aria-live="polite" data-informe-nota>El informe conecta cada glosa con su evidencia para que tu equipo pueda revisarla.</p>
+          </div>
+          <figcaption>Estructura ilustrativa del informe. Sin datos de pacientes.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-        <section aria-labelledby="que-incluye">
-          <h3 id="que-incluye">1. Qué auditamos</h3>
-          <p>Una sola factura por entidad, con todo su expediente: la factura y su detalle de cargos, la historia clínica y la epicrisis, las órdenes médicas, los registros de administración de medicamentos e insumos, las descripciones quirúrgicas, los informes de apoyo diagnóstico, las autorizaciones, y el contrato con su anexo de tarifas vigente.</p>
-          <p>Recibes un informe en Word con cada glosa: su concepto y código, su carácter (definitiva, condicional u observación), el valor y la cita del soporte que la prueba. Ninguna glosa sale sin la revisión de un auditor médico.</p>
-        </section>
-
-        <section aria-labelledby="normas">
-          <h3 id="normas">2. Las normas con las que auditamos</h3>
-          <p>La auditoría sigue la normativa colombiana de cuentas médicas y glosas:</p>
-          <ul>
+    <section class="seccion prueba-documentos" aria-labelledby="que-incluye">
+      <div class="contenedor">
+        <div class="encabezado-horizontal"><div><p class="etiqueta">Prepara tu primera cuenta</p><h2 id="que-incluye">Una factura.<br>Todo su contexto.</h2></div><p>La prueba incluye una sola factura por entidad, acompañada de sus soportes, anexos y contrato en PDF.</p></div>
+        <div class="prueba-documentos__rejilla">
+          <div class="prueba-expediente" aria-hidden="true" data-prueba-entrada><div class="prueba-expediente__hoja"><span>PDF</span><i></i><i></i><i></i></div><div class="prueba-expediente__carpeta"><span>Tu expediente</span><strong>Una revisión<br>conectada.</strong><small>Factura + soportes + contrato</small></div></div>
+          <div class="preguntas prueba-lista">
+            <details open><summary>Factura y detalle de cargos</summary><div class="pregunta__respuesta"><p>La factura completa y el detalle de los servicios, medicamentos e insumos cobrados.</p></div></details>
+            <details><summary>Historia clínica y soportes</summary><div class="pregunta__respuesta"><p>Historia clínica y epicrisis; órdenes médicas; registros de administración de medicamentos e insumos; descripciones quirúrgicas; informes de apoyo diagnóstico y autorizaciones.</p></div></details>
+            <details><summary>Contrato y tarifas</summary><div class="pregunta__respuesta"><p>El contrato entre las partes y su anexo de tarifas vigente, con las condiciones que aplican a la cuenta.</p></div></details>
+          </div>
+        </div>
+        <div class="prueba-acuerdo" id="requisitos"><span class="prueba-acuerdo__icono" aria-hidden="true">✓</span><div><h3>Primero el acuerdo. Después los documentos.</h3><p>Firmamos el acuerdo de tratamiento de datos y confidencialidad antes de recibir archivos. Se usan solo para esta prueba y se borran en los plazos acordados. <a href="seguridad.html">Conoce cómo los protegemos</a>.</p></div></div>
+        <div class="preguntas prueba-normas">
+          <details><summary id="normas">Consulta las normas y condiciones de la auditoría</summary><div class="pregunta__respuesta">
+            <p>La auditoría sigue la normativa colombiana de cuentas médicas y glosas, junto con el instructivo de nuestro auditor médico:</p>
+            <ul>
             <li><strong>Ley 1438 de 2011, artículo 57:</strong> el trámite de glosas entre pagadores y prestadores.</li>
             <li><strong>Resolución 2284 de 2023:</strong> el Manual Único de Devoluciones, Glosas y Respuestas. Cada glosa del informe lleva su concepto y código.</li>
             <li><strong>Decreto 780 de 2016</strong>, Único Reglamentario del Sector Salud, y su Anexo Técnico 1 (Manual Tarifario SOAT, que proviene del Decreto 2423 de 1996), liquidado con la UVB del año.</li>
@@ -72,25 +134,16 @@
             <li><strong>Resolución 3100 de 2019:</strong> la habilitación de servicios, verificada en el REPS.</li>
             <li><strong>Resolución 1995 de 1999:</strong> el manejo de la historia clínica, que es el soporte de lo facturado.</li>
           </ul>
-          <p>Sobre esa base aplicamos el instructivo de auditoría de nuestro auditor médico, módulo por módulo.</p>
-        </section>
+            <p>El acuerdo de tratamiento de datos y confidencialidad se formaliza conforme a la Ley 1581 de 2012 y sus decretos reglamentarios. Sin acuerdo firmado no recibimos documentos.</p>
+          </div></details>
+        </div>
+      </div>
+    </section>
 
-        <section aria-labelledby="requisitos">
-          <h3 id="requisitos">3. Qué se necesita</h3>
-          <ul>
-            <li>Ser una entidad del sector: EPS, IPS, firma auditora o auditor independiente.</li>
-            <li><strong>Firmar un acuerdo de tratamiento de datos</strong> y de confidencialidad, conforme a la Ley 1581 de 2012 y sus decretos reglamentarios. Sin acuerdo firmado no recibimos ningún documento.</li>
-            <li>Tener la factura completa en PDF, con los soportes y el contrato mencionados arriba.</li>
-            <li>Entregar los archivos por el canal seguro que acordemos. <strong>Nunca por correo electrónico.</strong></li>
-          </ul>
-          <p>Los documentos se tratan solo para esta prueba y se borran en los plazos que fije el acuerdo. Consulta cómo los protegemos en <a href="seguridad.html">Seguridad</a>.</p>
-        </section>
-
-        <section aria-labelledby="solicitar">
-          <h3 id="solicitar">4. Cómo solicitarla</h3>
-          <p>Escríbenos a <a href="mailto:carlosromero@audittia.com">carlosromero@audittia.com</a>. Te respondemos con el acuerdo de tratamiento de datos y, una vez firmado, con las instrucciones para entregar la factura. Los cupos son limitados.</p>
-          <div class="grupo-botones"><a class="boton" href="mailto:carlosromero@audittia.com?subject=Prueba%20gratis%20de%20AUDITTIA&body=Estoy%20interesado%20en%20una%20prueba%20gratis%20de%20AUDITTIA.%0A%0ANombre%3A%0ACargo%3A%0AEntidad%3A%0ACuentas%20m%C3%A9dicas%20al%20mes%20%28aprox.%29%3A%0A%0A%28No%20adjuntes%20la%20factura%20ni%20datos%20de%20pacientes%3A%20primero%20firmamos%20el%20acuerdo%20de%20tratamiento%20de%20datos.%29%0A">Quiero mi prueba gratis <span aria-hidden="true">↗</span></a></div>
-        </section>
+    <section class="seccion prueba-solicitud" id="solicitar" aria-labelledby="titulo-solicitud">
+      <div class="contenedor prueba-solicitud__rejilla" data-prueba-entrada>
+        <div><p class="etiqueta">Hagamos la primera revisión</p><h2 id="titulo-solicitud">Tu próxima factura puede ser el comienzo.</h2><p>Para EPS, IPS, firmas auditoras y auditores independientes que quieren conocer AUDITTIA sobre una cuenta real.</p><div class="prueba-condiciones"><span>Sin costo</span><span>Sin compromiso de compra</span></div></div>
+        <div class="prueba-solicitud__accion"><h3>Cuéntanos de tu entidad</h3><p>Incluye tu nombre, cargo, entidad y un estimado de cuentas al mes. Te responderemos con el acuerdo y los siguientes pasos.</p><a class="boton boton--claro" href="mailto:carlosromero@audittia.com?subject=Prueba%20gratis%20de%20AUDITTIA&body=Estoy%20interesado%20en%20una%20prueba%20gratis%20de%20AUDITTIA.%0A%0ANombre%3A%0ACargo%3A%0AEntidad%3A%0ACuentas%20m%C3%A9dicas%20al%20mes%20%28aprox.%29%3A%0A%0A%28No%20adjuntes%20la%20factura%20ni%20datos%20de%20pacientes%3A%20primero%20firmamos%20el%20acuerdo%20de%20tratamiento%20de%20datos.%29%0A">Solicitar mi prueba gratis <span aria-hidden="true">↗</span></a><span class="prueba-cupos">Una factura por entidad · Cupos limitados</span><a class="prueba-correo" href="mailto:carlosromero@audittia.com">carlosromero@audittia.com</a><p class="prueba-envio">El botón abre tu correo; tú decides cuándo enviarlo. No adjuntes facturas ni datos de pacientes. Los archivos se entregan únicamente por el canal seguro acordado.</p></div>
       </div>
     </section>
   </main>

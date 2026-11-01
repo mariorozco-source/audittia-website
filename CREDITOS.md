@@ -42,7 +42,7 @@ Derivado público: `assets/equipo-medico-video.mp4`, 10 segundos, H.264, 1280 ×
 
 ## Video para entidades
 
-Video facilitado por el propietario el 17 de octubre de 2026: `VIDEOS PARA WEB/Doctor_writing_and_typing_1080p_20261017114004.mp4`. Sustituye la fotografía de la cabecera de Para entidades y muestra a un profesional médico escribiendo y trabajando en un portátil. Es material ilustrativo.
+Video facilitado por el propietario el 17 de octubre de 2026: `VIDEOS PARA WEB/Doctor_writing_and_typing_1080p_20261017114004.mp4`. Se utiliza en las cabeceras de Para entidades y Prueba gratis, y muestra a un profesional médico escribiendo y trabajando en un portátil. Es material ilustrativo.
 
 Derivado público: `assets/auditor-escribiendo-video.mp4`, 10 segundos, H.264, 1280 × 720, sin audio y con fast start. `assets/auditor-escribiendo-poster.jpg` procede del segundo 1. El original se conserva fuera del artefacto publicado.
 
@@ -61,3 +61,7 @@ Fotografías facilitadas por el propietario e incorporadas el 31 de octubre de 2
 - Mario: `ChatGPT Image Oct 27, 2026, 08_58_41 AM.png` → `assets/mario-retrato.webp`.
 
 Las copias públicas se redimensionan y comprimen en WebP. El encuadre de la cabecera se ajusta mediante CSS. Los archivos originales no forman parte del artefacto publicado.
+
+## Página Prueba gratis
+
+La vista del informe y la carpeta de documentos son ilustraciones HTML/CSS, no capturas del producto ni expedientes reales. La vista interactiva explica los campos del informe sin datos de pacientes. Se reutilizan el video ilustrativo del auditor y el retrato real de Carlos, documentados arriba.
