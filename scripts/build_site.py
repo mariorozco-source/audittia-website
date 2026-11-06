@@ -58,6 +58,13 @@ def main() -> int:
         for source in sources:
             shutil.copy2(source, output / source.name)
         shutil.copytree(assets, output / "assets")
+        # security.txt (RFC 9116) vive en .well-known/: solo archivos regulares, nada más de la carpeta.
+        well_known = PROJECT_ROOT / ".well-known"
+        if well_known.is_dir() and not well_known.is_symlink():
+            (output / ".well-known").mkdir()
+            for item in sorted(well_known.iterdir()):
+                if item.is_file() and not item.is_symlink():
+                    shutil.copy2(item, output / ".well-known" / item.name)
     except OSError as error:
         print(f"ERROR al preparar el artefacto: {error}", file=sys.stderr)
         print("No se ha borrado ningún archivo. Si quedó una salida parcial, elige una nueva al reintentar.", file=sys.stderr)

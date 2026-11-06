@@ -256,6 +256,14 @@ def check(root: Path) -> int:
             if problem:
                 errors.append(f"{path.name}:{line}: {problem}")
 
+    security = root / ".well-known" / "security.txt"
+    if security.is_file():
+        text = security.read_text(encoding="utf-8")
+        expires = re.search(r"^Expires:\s*(\d{4}-\d{2}-\d{2})", text, re.M)
+        if not re.search(r"^Contact:\s*\S+", text, re.M):
+            errors.append(".well-known/security.txt: falta Contact.")
+        if not expires or expires.group(1) <= __import__("datetime").date.today().isoformat():
+            errors.append(".well-known/security.txt: Expires falta o ya venció (RFC 9116).")
     print(f"Sitio: {root}")
     print(f"Revisadas {len(paths)} páginas HTML y {reference_count} referencias; sin solicitudes de red.")
     if errors:

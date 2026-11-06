@@ -1,0 +1,7 @@
+# Política de reporte de vulnerabilidades de AUDITTIA (RFC 9116).
+# Si encontró una falla de seguridad, escríbanos antes de divulgarla: respondemos en 5 días hábiles.
+# No acceda a datos de terceros ni degrade el servicio para demostrarla.
+Contact: mailto:seguridad@audittia.com
+Expires: 2027-11-01T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://audittia.com/.well-known/security.txt
