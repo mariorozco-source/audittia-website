@@ -30,7 +30,7 @@ Prioridad alta: impide contacto o afecta confianza. Media: mejora comprensión, 
 
 | # | Prioridad | Falencia y cambio propuesto | Implementación / estado |
 |---|---|---|---|
-| 1 | Alta | Los 41 mailto tenían un marcador. Conectar todos los recorridos comerciales con un destinatario confirmado. | **Aplicado:** carlosromero@audittia.com en cabecera, contenido y pie. El usuario confirmó el correo; no se envió ningún mensaje ni se probó la entrega del buzón. |
+| 1 | Alta | Los 41 mailto tenían un marcador. Conectar todos los recorridos comerciales con un destinatario confirmado. | **Aplicado:** un correo confirmado en cabecera, contenido y pie. El contacto vigente es notificaciones@audittia.com; no se envió ningún mensaje ni se probó la entrega del buzón. |
 | 2 | Alta | Portada excesiva y repetida respecto de las interiores. Convertirla en una introducción con rutas claras. | **Aplicado:** siete secciones principales; metodología completa, controles y glosario permanecen en sus páginas. |
 | 3 | Media | Titular de 19 palabras, mayúsculas y bloque muy alto. Priorizar una propuesta de valor breve y dos acciones distinguibles. | **Aplicado:** “Más claridad en cada cuenta médica”, acción comercial y acceso a la plataforma. |
 | 4 | Media | La exploración dependía de leer bloques largos. Introducir accesos orientados a tareas. | **Aplicado:** plataforma, perfil de entidad y seguridad inmediatamente después del hero, con destino y texto descriptivos. |

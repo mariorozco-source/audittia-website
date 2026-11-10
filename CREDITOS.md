@@ -16,7 +16,7 @@ Derivados WebP optimizados a 640 y 1200 píxeles. Los encuadres se adaptan media
 
 ## Marca e ilustraciones
 
-Logo facilitado por el propietario. Favicon derivado del símbolo original. Iconos y diagramas dibujados en SVG/HTML/CSS para este sitio. La representación de Plataforma es conceptual, no una interfaz funcional ni una captura real.
+Logo nuevo facilitado por el propietario en noviembre de 2026; se extrajo de la imagen enviada para usarlo con fondo transparente. Favicon derivado de su símbolo final. Iconos y diagramas dibujados en SVG/HTML/CSS para este sitio. La representación de Plataforma es conceptual, no una interfaz funcional ni una captura real.
 
 ## Tipografía
 
