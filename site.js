@@ -7,56 +7,147 @@
   const ease = "cubic-bezier(.2,.7,.2,1)";
 
   document.querySelectorAll("video[data-video-ambiental]").forEach((video) => {
-    if (!("IntersectionObserver" in window)) return;
     const fallback = video.parentElement.querySelector("[data-video-fallback]");
+    const sources = [...video.querySelectorAll("source")];
     let visible = false;
+    let nearby = false;
+    let suspended = false;
+    let prepared = false;
     let failed = false;
-    let restartTimer;
-    const clearRestart = () => {
-      window.clearTimeout(restartTimer);
-      restartTimer = undefined;
+    let blocked = false;
+    let playAttempt = null;
+    let watchdog;
+    let reloads = 0;
+    let lastTime = 0;
+    let lastProgress = 0;
+
+    // También fijar las propiedades: Safari necesita reproducción silenciada inline.
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.loop = true;
+    const canPlay = () => visible && !document.hidden && !suspended && !motion.matches && !failed;
+    const prepare = () => {
+      if (prepared || !nearby || document.hidden || suspended || motion.matches || failed || blocked) return;
+      prepared = true;
+      video.preload = "auto";
+      video.load();
     };
-    const canPlay = () => visible && !document.hidden && !failed && !motion.matches;
-    const play = () => {
-      video.play().then(() => {
-        if (!canPlay()) video.pause();
-      }).catch(() => { /* Si se bloquea autoplay, permanece la portada. */ });
+    const stop = () => {
+      // Invalidar la promesa antes de pause(): su AbortError puede llegar más tarde.
+      playAttempt = null;
+      window.clearInterval(watchdog);
+      watchdog = undefined;
+      video.pause();
     };
-    const syncPlayback = () => {
-      video.hidden = failed || motion.matches;
-      fallback.hidden = !video.hidden;
-      if (!canPlay()) {
-        clearRestart();
-        video.pause();
-        return;
-      }
-      if (video.ended) {
-        // Mantener el último fotograma durante cinco segundos, sin recargar el MP4.
-        if (restartTimer !== undefined) return;
-        restartTimer = window.setTimeout(() => {
-          restartTimer = undefined;
-          if (!canPlay()) return;
-          video.currentTime = 0;
-          play();
-        }, 5000);
-      } else play();
-    };
-    const videoObserver = new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting && entry.intersectionRatio >= 0.2;
-      syncPlayback();
-    }, { threshold: [0, 0.2] });
-    videoObserver.observe(video.parentElement);
-    video.addEventListener("ended", syncPlayback);
     const showFallback = () => {
       failed = true;
       syncPlayback();
-      videoObserver.disconnect();
     };
+    const play = () => {
+      if (!canPlay() || blocked || playAttempt || !video.paused) return;
+      const attempt = video.play();
+      playAttempt = attempt;
+      attempt.then(() => {
+        if (!canPlay() || blocked) video.pause();
+      }).catch((error) => {
+        if (playAttempt !== attempt) return;
+        // Una pausa o load() interrumpe play(); no es un archivo dañado.
+        if (error.name === "AbortError") return;
+        if (error.name === "NotAllowedError") {
+          blocked = true;
+          syncPlayback();
+        } else showFallback();
+      }).finally(() => {
+        if (playAttempt === attempt) playAttempt = null;
+      });
+    };
+    const watchProgress = () => {
+      if (watchdog !== undefined) return;
+      lastTime = video.currentTime;
+      lastProgress = performance.now();
+      watchdog = window.setInterval(() => {
+        if (!canPlay() || blocked) return;
+        if (Math.abs(video.currentTime - lastTime) > 0.01) {
+          lastTime = video.currentTime;
+          lastProgress = performance.now();
+          return;
+        }
+        if (performance.now() - lastProgress < 10000) return;
+        // Un solo reinicio por atasco; evitar bucles de descarga en conexiones malas.
+        if (reloads >= 1 || navigator.onLine === false) {
+          showFallback();
+          return;
+        }
+        reloads += 1;
+        lastProgress = performance.now();
+        playAttempt = null;
+        prepared = false;
+        prepare();
+        play();
+      }, 2000);
+    };
+    function syncPlayback() {
+      video.hidden = failed || blocked || motion.matches;
+      if (fallback) fallback.hidden = !video.hidden;
+      if (!canPlay() || blocked) {
+        stop();
+        prepare();
+        return;
+      }
+      prepare();
+      watchProgress();
+      play();
+    }
+
+    if ("IntersectionObserver" in window) {
+      // Cargar antes de entrar en pantalla, sin reproducir videos fuera de ella.
+      const preloadObserver = new IntersectionObserver(([entry]) => {
+        nearby = entry.isIntersecting;
+        prepare();
+      }, { rootMargin: "250px 0px" });
+      const playbackObserver = new IntersectionObserver(([entry]) => {
+        // No pausar un video todavía visible por cruzar el antiguo umbral del 20 %.
+        visible = entry.isIntersecting && entry.intersectionRatio > 0;
+        if (visible) nearby = true;
+        syncPlayback();
+      }, { threshold: [0, 0.01] });
+      preloadObserver.observe(video.parentElement);
+      playbackObserver.observe(video.parentElement);
+    } else {
+      nearby = visible = true;
+    }
+    video.addEventListener("canplay", syncPlayback);
+    video.addEventListener("playing", () => {
+      if (!canPlay() || blocked) { stop(); return; }
+      lastTime = video.currentTime;
+      lastProgress = performance.now();
+    });
+    video.addEventListener("pause", () => {
+      if (canPlay() && !blocked) window.setTimeout(syncPlayback, 0);
+    });
     video.addEventListener("error", showFallback);
-    video.querySelector("source").addEventListener("error", showFallback);
+    // El navegador puede probar la versión de escritorio si falla la móvil.
+    sources.at(-1)?.addEventListener("error", showFallback);
+    const retryBlocked = () => {
+      if (!blocked || !canPlay()) return;
+      blocked = false;
+      // play() se invoca dentro del gesto, como requieren los modos de ahorro de energía.
+      syncPlayback();
+    };
+    document.addEventListener("touchend", retryBlocked, { passive: true });
+    document.addEventListener("click", retryBlocked);
+    document.addEventListener("keydown", retryBlocked);
     document.addEventListener("visibilitychange", syncPlayback);
-    window.addEventListener("pagehide", () => { clearRestart(); video.pause(); });
-    window.addEventListener("pageshow", syncPlayback);
+    window.addEventListener("pagehide", () => { suspended = true; syncPlayback(); });
+    window.addEventListener("pageshow", () => { suspended = false; syncPlayback(); });
+    window.addEventListener("online", () => {
+      if (!failed) return;
+      failed = false;
+      prepared = false;
+      reloads = 0;
+      syncPlayback();
+    });
     motion.addEventListener("change", syncPlayback);
     syncPlayback();
   });

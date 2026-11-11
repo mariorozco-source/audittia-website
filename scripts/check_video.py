@@ -22,7 +22,6 @@ def main():
     args = parser.parse_args()
     container = '.hero__foto-marco' if args.video_selector == '#video-portada' else '.foto-editorial__media'
     fallback_selector = container + ' [data-video-fallback]'
-    filename = 'medica-auditoria-portada.mp4' if args.video_selector == '#video-portada' else 'equipo-medico-video.mp4'
     with sync_playwright() as p:
         options = {'headless': True}
         if args.browser_path:
@@ -37,34 +36,20 @@ def main():
             assert page.locator(args.video_selector).evaluate('v => v.paused && v.currentTime === 0')
         page.locator(container).scroll_into_view_if_needed()
         wait_for(page, "!window.__testVideo.paused && window.__testVideo.currentTime > 0")
-        assert page.locator(args.video_selector).evaluate('v => v.muted && v.playsInline && !v.loop && v.videoWidth === 1280')
+        assert page.locator(args.video_selector).evaluate('v => v.muted && v.playsInline && v.loop && v.videoWidth === 1280')
         assert page.locator('.hero__video-control').count() == 0
         assert page.locator(args.video_selector).evaluate('v => !v.controls')
-        page.locator(args.video_selector).evaluate("""v => {
-            v.addEventListener('ended', () => window.endedAt = performance.now());
-            v.addEventListener('playing', () => {
-                if (window.endedAt) window.restartDelay = performance.now() - window.endedAt;
-            });
-            v.playbackRate = 5;
-        }""")
-        wait_for(page, "window.__testVideo.ended")
-        page.wait_for_timeout(4000)
-        assert page.locator(args.video_selector).evaluate('v => v.ended && v.paused'), 'Reinicio antes de cinco segundos.'
+        page.locator(args.video_selector).evaluate('v => v.currentTime = v.duration - 0.3')
         wait_for(page, "!window.__testVideo.paused && window.__testVideo.currentTime < 2")
-        wait_for(page, "window.restartDelay >= 4950")
-        page.locator(args.video_selector).evaluate('v => v.playbackRate = 5')
-        wait_for(page, "window.__testVideo.ended")
         page.evaluate('window.scrollTo(0, document.body.scrollHeight)')
-        page.wait_for_timeout(5200)
-        assert page.locator(args.video_selector).evaluate('v => v.paused && v.ended'), 'Reinicio fuera de pantalla.'
+        wait_for(page, "window.__testVideo.paused")
         page.locator(container).scroll_into_view_if_needed()
-        page.wait_for_timeout(200)
-        assert page.locator(args.video_selector).evaluate('v => v.ended'), 'No se respetó la espera al regresar.'
+        wait_for(page, "!window.__testVideo.paused")
         page.emulate_media(reduced_motion='reduce')
         wait_for(page, "window.__testVideo.paused && window.__testVideo.hidden")
         assert page.locator(fallback_selector).is_visible()
-        page.wait_for_timeout(5200)
-        assert page.locator(args.video_selector).evaluate('v => v.paused'), 'Temporizador activo con movimiento reducido.'
+        page.wait_for_timeout(600)
+        assert page.locator(args.video_selector).evaluate('v => v.paused'), 'Reproducción activa con movimiento reducido.'
         page.reload(wait_until='networkidle')
         assert page.locator(args.video_selector).evaluate('v => v.paused && v.currentTime === 0')
         page.locator(container).scroll_into_view_if_needed()
@@ -75,7 +60,9 @@ def main():
             page.set_viewport_size({'width': width, 'height': 844})
             page.goto(args.base_url)
             page.locator(args.video_selector).scroll_into_view_if_needed()
-            wait_for(page, "!window.__testVideo.paused")
+            wait_for(page, "!window.__testVideo.paused && window.__testVideo.currentTime > 0")
+            assert page.locator(args.video_selector).evaluate('v => v.videoWidth') == (640 if width <= 760 else 1280)
+            assert ('-mobile.mp4' in page.locator(args.video_selector).evaluate('v => v.currentSrc')) == (width <= 760)
             assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
             if args.video_selector == '#video-equipo':
                 assert page.locator(args.video_selector).evaluate('v => Math.abs(v.clientWidth / v.clientHeight - 16 / 9) < 0.02'), 'El video del equipo está recortado.'
@@ -95,7 +82,7 @@ def main():
         assert fallback.locator(args.video_selector).evaluate('v => !v.controls && v.paused')
         assert not fallback.locator('.hero__video-control').is_visible()
         fallback.close()
-        page.route('**/' + filename, lambda route: route.abort())
+        page.route('**/*.mp4', lambda route: route.abort())
         page.goto(args.base_url)
         page.locator(container).scroll_into_view_if_needed()
         wait_for(page, "!window.__testVideo.parentElement.querySelector('[data-video-fallback]').hidden")
@@ -103,7 +90,7 @@ def main():
         assert page.locator(fallback_selector).evaluate('img => img.naturalWidth > 0')
         assert not errors, errors
         browser.close()
-    print('Video correcto: repetición tras 5 segundos, cancelación fuera de pantalla y con movimiento reducido, sin botones, cuatro anchuras, sin JS y respaldo ante errores.')
+    print('Video correcto: repetición continua, fuentes móviles, pausa fuera de pantalla y con movimiento reducido, sin botones, cuatro anchuras, sin JS y respaldo ante errores.')
 
 
 if __name__ == '__main__':

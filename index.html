@@ -22,7 +22,7 @@
   <link rel="preload" href="assets/fonts/work-sans-600.woff2" as="font" type="font/woff2" crossorigin>
   <title>AUDITTIA | Auditoría de cuentas médicas</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="site.js" defer></script>
+  <script src="site.js?v=mobile-video-2" defer></script>
 </head>
 <body>
   <a class="saltar-contenido" href="#contenido-principal">Saltar al contenido principal</a>
@@ -48,7 +48,8 @@
         </div>
         <figure class="hero__visual">
           <div class="hero__foto-marco">
-            <video id="video-portada" class="hero__video" data-video-ambiental width="1280" height="720" poster="assets/medica-auditoria-poster.jpg" preload="none" muted playsinline aria-label="Video ilustrativo: acercamiento desde la Tierra hasta una médica en su consultorio.">
+            <video id="video-portada" class="hero__video" data-video-ambiental width="1280" height="720" poster="assets/medica-auditoria-poster.jpg" preload="none" muted playsinline loop aria-label="Video ilustrativo: acercamiento desde la Tierra hasta una médica en su consultorio.">
+              <source src="assets/medica-auditoria-portada-mobile.mp4" type="video/mp4" media="(max-width: 760px)">
               <source src="assets/medica-auditoria-portada.mp4" type="video/mp4">
               Tu navegador no admite video. <a href="assets/medica-auditoria-portada.mp4">Ver el video de portada</a>.
             </video>
@@ -84,7 +85,8 @@
       <div class="contenedor editorial-personas">
         <figure class="foto-editorial">
           <div class="foto-editorial__media">
-            <video id="video-equipo" data-video-ambiental width="1280" height="720" poster="assets/equipo-medico-poster.jpg" preload="none" muted playsinline aria-label="Video ilustrativo de profesionales médicos conversando en equipo.">
+            <video id="video-equipo" data-video-ambiental width="1280" height="720" poster="assets/equipo-medico-poster.jpg" preload="none" muted playsinline loop aria-label="Video ilustrativo de profesionales médicos conversando en equipo.">
+              <source src="assets/equipo-medico-video-mobile.mp4" type="video/mp4" media="(max-width: 760px)">
               <source src="assets/equipo-medico-video.mp4" type="video/mp4">
               Tu navegador no admite video. <a href="assets/equipo-medico-video.mp4">Ver el video del equipo médico</a>.
             </video>

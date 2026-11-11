@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AUDITTIA · pruebas de video</title>
+<style>
+body { font: 16px system-ui; margin: 20px; background: #eff5f8; color: #002b44; }
+button { font: inherit; padding: 10px 20px; } #status { font-weight: bold; }
+iframe { display: block; border: 2px solid #0077c8; width: 390px; height: 540px; }
+#results { position: fixed; left: 960px; top: 20px; width: 340px; font-size: 14px; }
+</style>
+<h1>Prueba real de videos</h1>
+<button id="run">Ejecutar pruebas</button>
+<p id="status">Listo. Comprueba las cinco ubicaciones móviles y la portada de escritorio.</p>
+<iframe title="Sitio en comprobación" allow="autoplay"></iframe><ol id="results"></ol>
+<script>
+const frame = document.querySelector('iframe');
+const status = document.querySelector('#status');
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+const assert = (condition, message) => { if (!condition) throw Error(message); };
+const until = async (check, message, timeout = 15000) => {
+  const deadline = performance.now() + timeout;
+  while (!check()) { if (performance.now() > deadline) throw Error(message); await delay(100); }
+};
+const record = text => { const item = document.createElement('li'); item.textContent = text; document.querySelector('#results').append(item); };
+document.querySelector('#run').onclick = async () => {
+  document.querySelector('#run').disabled = true;
+  document.querySelector('#results').replaceChildren();
+  document.title = 'Probando · videos AUDITTIA';
+  const cases = [
+    ['index.html', '#video-portada', 390], ['index.html', '#video-equipo', 390],
+    ['para-entidades.html', 'video', 390], ['seguridad.html', 'video', 390],
+    ['factura-gratis.html', 'video', 390], ['index.html', '#video-portada', 900],
+  ];
+  try {
+    for (const [page, selector, width] of cases) {
+      status.textContent = `Comprobando ${page} ${selector} a ${width}px…`;
+      frame.style.width = width + 'px';
+      const target = new URL('/' + page + '?video-qa=' + Date.now(), location.href).href;
+      frame.src = target;
+      // Safari puede retrasar load del iframe mientras un video tiene preload=none.
+      await until(() => frame.contentDocument?.URL === target && frame.contentDocument.readyState !== 'loading', 'La página no terminó de cargar');
+      const doc = frame.contentDocument, win = frame.contentWindow, video = doc.querySelector(selector);
+      assert(!win.matchMedia('(prefers-reduced-motion: reduce)').matches, 'La preferencia de movimiento reducido está activa; desactívala para esta prueba de reproducción.');
+      video.scrollIntoView({ block: 'center' });
+      await until(() => !video.paused && video.currentTime > 0.2, 'El video no empieza: ' + video.currentSrc);
+      assert(video.currentSrc.includes('-mobile.mp4') === (width <= 760), 'Fuente responsive incorrecta');
+      assert(video.videoWidth === (width <= 760 ? 640 : 1280), 'Resolución incorrecta');
+      assert(video.loop && video.muted && video.playsInline && !video.controls, 'Configuración de reproducción incorrecta');
+      assert(doc.documentElement.scrollWidth <= win.innerWidth, 'Desbordamiento horizontal');
+      let before = video.currentTime;
+      await delay(1300);
+      assert(video.currentTime !== before && !video.paused, 'Reproducción congelada');
+      // Seek al final para observar una repetición nativa, sin espera de cinco segundos.
+      video.currentTime = video.duration - 0.3;
+      await until(() => video.currentTime < 2 && !video.paused, 'No se repite continuamente', 6000);
+      win.scrollTo(0, doc.documentElement.scrollHeight);
+      await until(() => video.paused, 'No pausa fuera de pantalla', 3000);
+      video.scrollIntoView({ block: 'center' });
+      await until(() => !video.paused, 'No se reanuda al volver', 3000);
+      before = video.currentTime; await delay(800);
+      assert(video.currentTime !== before, 'No avanza al volver');
+      video.pause();
+      await until(() => !video.paused, 'No recupera una interrupción', 3000);
+      win.dispatchEvent(new PageTransitionEvent('pagehide'));
+      assert(video.paused, 'No pausa al salir');
+      win.dispatchEvent(new PageTransitionEvent('pageshow', { persisted: true }));
+      await until(() => !video.paused, 'No reanuda al restaurar la página', 3000);
+      record(`OK ${page} ${selector} ${width}px: fuente, avance, repetición, scroll y restauración.`);
+    }
+    status.textContent = 'CORRECTO: 6 escenarios reales completados.';
+    document.title = 'CORRECTO · videos AUDITTIA';
+  } catch (error) {
+    status.textContent = 'ERROR: ' + error.message;
+    document.title = 'ERROR · videos AUDITTIA';
+    record(error.stack);
+  }
+  document.querySelector('#run').disabled = false;
+};
+</script></html>
